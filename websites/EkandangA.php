@@ -165,7 +165,7 @@ $tanggal = date("Ymd");
                                 <br><br><br><br><br><br><br><br>
                                 <div class="mb-3">
                                     <label for="" class="form-label">Diisi Oleh</label>
-                                    <input type="text" class="form-control" id="" placeholder="Masukkan suhu sore hari" name="nama" value="<?= $kda["nama"]?>" readonly="">
+                                    <input type="text" class="form-control"  name="nama" value="<?= $kda["nama"]?>" readonly="">
                                     <br>
 
                                     <div class="mb-3">

@@ -138,7 +138,7 @@ $tanggal = date("Ymd");
                             <div class="mb-3">
 
                                 <input type="text" class="form-control"  placeholder="Suhu sore hari" name="suhu_sore" required="" autocomplete="off" maxlength="5">
-                                <input type="hidden" class="form-control"  placeholder="Masukkan nama" name="nama" value="<?php echo $_SESSION ['username'] ?>">
+                                <input type="hidden" class="form-control"  placeholder="Masukkan nama" name="nama" value="<?php echo $_SESSION ['nama'] ?>">
 
                             </div>
                         </div>
