@@ -1,0 +1,8 @@
+<IfModule mod_rewrite.c>
+   RewriteEngine on
+   RewriteCond %{REQUEST_FILENAME} !-d
+   RewriteCond %{REQUEST_FILENAME}.php -f
+   RewriteRule ^(.*)$ $1.php
+</IfModule>
+
+ErrorDocument 404 http://localhost/BUF/BUF-web-Able/websites/404
