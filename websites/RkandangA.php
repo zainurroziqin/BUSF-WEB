@@ -34,7 +34,7 @@ $kandang_a= query("SELECT * FROM kandang_a")
                 <div class="card">
                     <div class="card-header">
                         <!-- <h5>Kandang A</h5> --><center>
-                       <h3 >RECORD DATA KANDANG A</h3>
+                       <h3 >LAPORAN DATA KANDANG A</h3>
                        <h3>BAROKAH UTAMA FARM</h3>
                        </center>
                     </div>
@@ -97,21 +97,21 @@ $kandang_a= query("SELECT * FROM kandang_a")
                                 <td ><?=$i; ?></td>
                                  <td ><?=$a; ?></td>
                                 <td><?= date ('d F Y', strtotime ($row["tanggal"])); ?></td>
-                                <td><?= $row["afkir"]; ?></td>
-                                <td><?= $row["mati"]; ?></td>
-                                <td><?= $row["pakan_total"]; ?>kg</td>
-                                <td><?= $row["sisa_1"]; ?></td>
-                                <td><?= $row["sisa_2"]; ?></td>
-                                <td><?= $row["sisa_3"]; ?></td>
-                                <td><?= $row["sisa_4"]; ?></td>
-                                <td><?= $row["sisa_5"]; ?></td>
-                                <td><?= $row["sisa_6"]; ?></td>
+                                <td><?= $row["afkir"]; ?> ekor</td>
+                                <td><?= $row["mati"]; ?> ekor</td>
+                                <td><?= $row["pakan_total"]; ?> kg</td>
+                                <td><?= $row["sisa_1"]; ?> kg</td>
+                                <td><?= $row["sisa_2"]; ?> kg</td>
+                                <td><?= $row["sisa_3"]; ?> kg</td>
+                                <td><?= $row["sisa_4"]; ?> kg</td>
+                                <td><?= $row["sisa_5"]; ?> kg</td>
+                                <td><?= $row["sisa_6"]; ?> kg</td>
                                 <td>Total</td>
-                                <td><?= $row["jumlah_telur"]; ?></td>
-                                <td><?= $row["berat_telur"]; ?></td>
-                                <td><?= $row["suhu_pagi"]; ?></td>
-                                <td><?= $row["suhu_siang"]; ?></td>
-                                <td><?= $row["suhu_sore"]; ?></td>
+                                <td><?= $row["jumlah_telur"]; ?> Butir </td>
+                                <td><?= $row["berat_telur"]; ?> kg</td>
+                                <td><?= $row["suhu_pagi"]; ?>℃</td>
+                                <td><?= $row["suhu_siang"]; ?>℃</td>
+                                <td><?= $row["suhu_sore"]; ?>℃</td>
                                 
                                 </tr>
                                 <?php $i ++; ?>
