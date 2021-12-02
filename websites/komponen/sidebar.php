@@ -45,7 +45,8 @@ if ( !isset($_SESSION["login"])){
                 <li class="nav-item pcoded-menu-caption">
                     <label>Report</label>
                 </li>
-                <li class="nav-item"><a href="animation.html" class="nav-link "><span class="pcoded-micon"><i class="fas fa-calendar-week"></i></span><span class="pcoded-mtext">Weekly Report</span></a></li>
+                <li class="nav-item"><a href="animation.html" class="nav-link "><span class="pcoded-micon"><i class="fas fa-calendar-week"></i></span><span class="pcoded-mtext">Weekly Report</span></a>
+                </li>
                 <li class="nav-item"><a href="animation.html" class="nav-link "><span class="pcoded-micon"><i class="fas fa-calendar-alt"></i></span><span class="pcoded-mtext">Monthly Report</span></a></li>
                 <li class="nav-item"><a href="Logout.php" class="nav-link "><span class="pcoded-micon"><i class="fas fa-fw fa-sign-out-alt"></i></span><span class="pcoded-mtext">Logout</span></a></li>
             </ul>
