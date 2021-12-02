@@ -5,4 +5,4 @@
    RewriteRule ^(.*)$ $1.php
 </IfModule>
 
-ErrorDocument 404 http://localhost/BUF/BUF-web-Able/websites/404
+ErrorDocument 404 http://localhost/BUF/BUSF-web/websites/404.php
