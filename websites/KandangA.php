@@ -35,7 +35,7 @@ $kandang_a= query("SELECT * FROM kandang_a")
                     <div class="card-header">
                         <!-- <h5>Kandang A</h5> -->
                         <a href="TkandangA.php">
-                          <button type="button" class="btn btn-warning" ><i class="feather mr-2 icon-plus"></i>Tambah Data Baru</button>
+                          <button type="button" class="btn btn-warning"><i class="feather mr-2 icon-plus"></i>Tambah Data Baru</button>
                           </a>
                     </div>
                     <div class="card-body">
