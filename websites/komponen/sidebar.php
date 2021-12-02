@@ -45,10 +45,26 @@ if ( !isset($_SESSION["login"])){
                 <li class="nav-item pcoded-menu-caption">
                     <label>Report</label>
                 </li>
-                <li class="nav-item"><a href="animation.html" class="nav-link "><span class="pcoded-micon"><i class="fas fa-calendar-week"></i></span><span class="pcoded-mtext">Weekly Report</span></a>
-                </li>
-                <li class="nav-item"><a href="animation.html" class="nav-link "><span class="pcoded-micon"><i class="fas fa-calendar-alt"></i></span><span class="pcoded-mtext">Monthly Report</span></a></li>
-                <li class="nav-item"><a href="Logout.php" class="nav-link "><span class="pcoded-micon"><i class="fas fa-fw fa-sign-out-alt"></i></span><span class="pcoded-mtext">Logout</span></a></li>
+                <li class="nav-item pcoded-hasmenu">
+                    <a href="#!" class="nav-link"><span class="pcoded-micon"><i class="fas fa-calendar-week"></i></span><span class="pcoded-mtext">Weekly Report</span></a>
+                    <ul class="pcoded-submenu">
+                        <li><a href="RkandangA.php">Kandang A</a></li>
+                        <li><a href="RkandangB.php">Kandang B</a></li>
+                        <li><a href="RkandangC.php">Kandang C</a></li>
+                        <li><a href="RkandangD.php">kandang D</a></li>
+                    </ul>
+				</li>
+                <li class="nav-item pcoded-hasmenu">
+                    <a href="#!" class="nav-link"><span class="pcoded-micon"><i class="fas fa-calendar-alt"></i></span><span class="pcoded-mtext">Monthly Report</span></a>
+                    <ul class="pcoded-submenu">
+                        <li><a href="#">Kandang A</a></li>
+                        <li><a href="#">Kandang B</a></li>
+                        <li><a href="#">Kandang C</a></li>
+                        <li><a href="#">kandang D</a></li>
+                    </ul>
+				</li>
+                <!-- <li class="nav-item"><a href="Logout.php" class="nav-link "><span class="pcoded-micon"><i class="fas fa-fw fa-sign-out-alt"></i></span><span class="pcoded-mtext">Logout</span></a></li> -->
+                
             </ul>
             
         </div>

@@ -3,8 +3,8 @@
             
     <div class="m-header">
         <a class="mobile-menu" id="mobile-collapse" href="#!"><span></span></a>
-        <a href="#!" class="b-brand">
-            <img src="../assets/images/logo1.png" alt="" class="logo">
+        <a href="#!" class="b-brand" class="img-fluid animation-toggle animated" data-animate="flip">
+            <img src="../assets/images/logo1.png" alt="" alt="img" class="img-fluid animation-toggle animated" data-animate="jackInTheBox" >
             
         </a>
         <a href="#!" class="mob-toggler">
@@ -12,7 +12,7 @@
         </a>
     </div>
     <div class="collapse navbar-collapse">
-        <ul class="navbar-nav mr-auto">
+        <!-- <ul class="navbar-nav mr-auto">
             <li class="nav-item">
                 <a href="#!" class="pop-search"><i class="feather icon-search"></i></a>
                 <div class="search-bar">
@@ -22,7 +22,7 @@
                     </button>
                 </div>
             </li>
-        </ul>
+        </ul> -->
         <ul class="navbar-nav ml-auto">
             <li>
                 <div class="dropdown">
@@ -92,16 +92,17 @@
                     </a>
                     <div class="dropdown-menu dropdown-menu-right profile-notification">
                         <div class="pro-head">
-                            <img src="assets/images/user/avatar-1.jpg" class="img-radius" alt="User-Profile-Image">
+                            <i><i class="fas fa-user"></i></i>
+                            &nbsp;
                             <span>John Doe</span>
-                            <a href="auth-signin.html" class="dud-logout" title="Logout">
+                            <!-- <a href="auth-signin.html" class="dud-logout" title="Logout">
                                 <i class="feather icon-log-out"></i>
-                            </a>
+                            </a> -->
                         </div>
                         <ul class="pro-body">
-                            <li><a href="user-profile.html" class="dropdown-item"><i class="feather icon-user"></i> Profile</a></li>
-                            <li><a href="email_inbox.html" class="dropdown-item"><i class="feather icon-mail"></i> My Messages</a></li>
-                            <li><a href="auth-signin.html" class="dropdown-item"><i class="feather icon-lock"></i> Lock Screen</a></li>
+                            <li><a href="logout.php" class="dropdown-item"><i class="fas fa-fw fa-sign-out-alt"></i> Keluar</a></li>
+                            <!-- <li><a href="email_inbox.html" class="dropdown-item"><i class="feather icon-mail"></i> My Messages</a></li>
+                            <li><a href="auth-signin.html" class="dropdown-item"><i class="feather icon-lock"></i> Lock Screen</a></li> -->
                         </ul>
                     </div>
                 </div>
