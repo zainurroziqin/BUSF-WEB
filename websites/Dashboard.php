@@ -32,46 +32,152 @@
         <div class="row">
             <!-- visitors  start -->
             <div class="col-sm-3">
-                <div class="card bg-c-green text-white widget-visitor-card">
+                <div class="card  text-white ">
                     <div class="card-body text-center">
-                    	<h2 class="text-white"> <?php
-                                 $GetTable = mysqli_query($conn, "SELECT COUNT(id) AS JumlahData FROM user");
+                         <div class="text-xs font-weight-bold text-success text-uppercase mb-1" align="left">
+                                Kandang A</div>
+                     <div>
+                    	<h5 class="font-weight-bold text-success" align="left" > <?php
+                                 $GetTable = mysqli_query($conn, "SELECT COUNT(id) AS JumlahData FROM kandang_a WHERE keterangan = 'Terkonfirmasi'");
                                  $GetData = mysqli_fetch_array($GetTable);
                                  $GetNilai = $GetData['JumlahData'];
-                                 echo "
-                                  $GetNilai";?></h2>
-                        <h6 class="text-white">Pengguna</h6>
-                        <a href="Pengguna.php" ><p class="card-text text-white">Lihat Detail >></p></a>
-                        <i class="feather icon-user-plus"></i>
+                                echo "
+                                  $GetNilai Dikonfirmasi"; ?> <i class="fas fa-check"></i> </h5>  
+                                  </div>
+
+                                  <!-- munculkan data yang belum dikonfirmasi -->
+                            <div> 
+                            <h5 class = "font-weight-bold text-danger" align="left"> <?php
+                                 $GetTable = mysqli_query($conn, "SELECT COUNT(id) AS JumlahData FROM kandang_a WHERE keterangan = 'Belum Dikonfirmasi'");
+                                 $GetData = mysqli_fetch_array($GetTable);
+                                 $GetNilai = $GetData['JumlahData'];
+                                echo "
+                                  $GetNilai Menunggu"; ?> <i class="fas fa-spinner"></i></h5>
+                              </div>
+
+                            <hr style="height:1px;border:none;color:#333;background-color:#333;">
+                                <!-- munculkan Total Data  -->
+                            <div class="h5 font-weight-bold text-primary" align="left"> <?php
+                                 $GetTable = mysqli_query($conn, "SELECT COUNT(id) AS JumlahData FROM kandang_a");
+                                 $GetData = mysqli_fetch_array($GetTable);
+                                 $GetNilai = $GetData['JumlahData'];
+                                echo "
+                                  $GetNilai Total Data"; ?></i></div>                      
                     </div>
+
                 </div>
+
             </div>
-            <div class="col-sm-3">
-                <div class="card bg-c-green text-white widget-visitor-card">
+               <div class="col-sm-3">
+                <div class="card  text-white ">
                     <div class="card-body text-center">
-                        <h2 class="text-white">14</h2>
-                        <h6 class="text-white">Active Users</h6>
-                        <i class="feather icon-user-check"></i>
+                         <div class="text-xs font-weight-bold text-success text-uppercase mb-1" align="left">
+                                Kandang B</div>
+                     <div>
+                        <h5 class="font-weight-bold text-success" align="left" > <?php
+                                 $GetTable = mysqli_query($conn, "SELECT COUNT(id) AS JumlahData FROM kandang_b WHERE keterangan = 'Terkonfirmasi'");
+                                 $GetData = mysqli_fetch_array($GetTable);
+                                 $GetNilai = $GetData['JumlahData'];
+                                echo "
+                                  $GetNilai Dikonfirmasi"; ?> <i class="fas fa-check"></i> </h5>  
+                                  </div>
+
+                                  <!-- munculkan data yang belum dikonfirmasi -->
+                            <div> 
+                            <h5 class = "font-weight-bold text-danger" align="left"> <?php
+                                 $GetTable = mysqli_query($conn, "SELECT COUNT(id) AS JumlahData FROM kandang_b WHERE keterangan = 'Belum Dikonfirmasi'");
+                                 $GetData = mysqli_fetch_array($GetTable);
+                                 $GetNilai = $GetData['JumlahData'];
+                                echo "
+                                  $GetNilai Menunggu"; ?> <i class="fas fa-spinner"></i></h5>
+                              </div>
+
+                            <hr style="height:1px;border:none;color:#333;background-color:#333;">
+                                <!-- munculkan Total Data  -->
+                            <div class="h5 font-weight-bold text-primary" align="left"> <?php
+                                 $GetTable = mysqli_query($conn, "SELECT COUNT(id) AS JumlahData FROM kandang_b");
+                                 $GetData = mysqli_fetch_array($GetTable);
+                                 $GetNilai = $GetData['JumlahData'];
+                                echo "
+                                  $GetNilai Total Data"; ?></i></div>                      
                     </div>
+
                 </div>
+
             </div>
-            <div class="col-sm-3">
-                <div class="card bg-c-yellow text-white widget-visitor-card">
+             <div class="col-sm-3">
+                <div class="card  text-white ">
                     <div class="card-body text-center">
-                        <h2 class="text-white">1</h2>
-                        <h6 class="text-white">Pending Users</h6>
-                        <i class="feather icon-user-minus"></i>
+                         <div class="text-xs font-weight-bold text-success text-uppercase mb-1" align="left">
+                                Kandang C</div>
+                     <div>
+                        <h5 class="font-weight-bold text-success" align="left" > <?php
+                                 $GetTable = mysqli_query($conn, "SELECT COUNT(id) AS JumlahData FROM kandang_c WHERE keterangan = 'Terkonfirmasi'");
+                                 $GetData = mysqli_fetch_array($GetTable);
+                                 $GetNilai = $GetData['JumlahData'];
+                                echo "
+                                  $GetNilai Dikonfirmasi"; ?> <i class="fas fa-check"></i> </h5>  
+                                  </div>
+
+                                  <!-- munculkan data yang belum dikonfirmasi -->
+                            <div> 
+                            <h5 class = "font-weight-bold text-danger" align="left"> <?php
+                                 $GetTable = mysqli_query($conn, "SELECT COUNT(id) AS JumlahData FROM kandang_c WHERE keterangan = 'Belum Dikonfirmasi'");
+                                 $GetData = mysqli_fetch_array($GetTable);
+                                 $GetNilai = $GetData['JumlahData'];
+                                echo "
+                                  $GetNilai Menunggu"; ?> <i class="fas fa-spinner"></i></h5>
+                              </div>
+
+                            <hr style="height:1px;border:none;color:#333;background-color:#333;">
+                                <!-- munculkan Total Data  -->
+                            <div class="h5 font-weight-bold text-primary" align="left"> <?php
+                                 $GetTable = mysqli_query($conn, "SELECT COUNT(id) AS JumlahData FROM kandang_c");
+                                 $GetData = mysqli_fetch_array($GetTable);
+                                 $GetNilai = $GetData['JumlahData'];
+                                echo "
+                                  $GetNilai Total Data"; ?></i></div>                      
                     </div>
+
                 </div>
+
             </div>
-            <div class="col-sm-3">
-                <div class="card bg-c-yellow text-white widget-visitor-card">
+               <div class="col-sm-3">
+                <div class="card  text-white ">
                     <div class="card-body text-center">
-                        <h2 class="text-white">16</h2>
-                        <h6 class="text-white">Active Memberships</h6>
-                        <i class="feather icon-users"></i>
+                         <div class="text-xs font-weight-bold text-success text-uppercase mb-1" align="left">
+                                Kandang D</div>
+                     <div>
+                        <h5 class="font-weight-bold text-success" align="left" > <?php
+                                 $GetTable = mysqli_query($conn, "SELECT COUNT(id) AS JumlahData FROM kandang_d WHERE keterangan = 'Terkonfirmasi'");
+                                 $GetData = mysqli_fetch_array($GetTable);
+                                 $GetNilai = $GetData['JumlahData'];
+                                echo "
+                                  $GetNilai Dikonfirmasi"; ?> <i class="fas fa-check"></i> </h5>  
+                                  </div>
+
+                                  <!-- munculkan data yang belum dikonfirmasi -->
+                            <div> 
+                            <h5 class = "font-weight-bold text-danger" align="left"> <?php
+                                 $GetTable = mysqli_query($conn, "SELECT COUNT(id) AS JumlahData FROM kandang_d WHERE keterangan = 'Belum Dikonfirmasi'");
+                                 $GetData = mysqli_fetch_array($GetTable);
+                                 $GetNilai = $GetData['JumlahData'];
+                                echo "
+                                  $GetNilai Menunggu"; ?> <i class="fas fa-spinner"></i></h5>
+                              </div>
+
+                            <hr style="height:1px;border:none;color:#333;background-color:#333;">
+                                <!-- munculkan Total Data  -->
+                            <div class="h5 font-weight-bold text-primary" align="left"> <?php
+                                 $GetTable = mysqli_query($conn, "SELECT COUNT(id) AS JumlahData FROM kandang_d");
+                                 $GetData = mysqli_fetch_array($GetTable);
+                                 $GetNilai = $GetData['JumlahData'];
+                                echo "
+                                  $GetNilai Total Data"; ?></i></div>                      
                     </div>
+
                 </div>
+
             </div>
             <!-- visitors  end -->
             <!-- progressbar static data start -->
