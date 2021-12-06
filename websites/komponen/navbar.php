@@ -1,3 +1,10 @@
+ <?php 
+
+if ( !isset($_SESSION["login"])){
+    header("Location: login.php");
+    exit;
+}
+   ?>
 <header class="navbar pcoded-header navbar-expand-lg navbar-light header-blue">
         
             
@@ -43,7 +50,7 @@
                                 <div class="media">
                                     <img class="img-radius" src="assets/images/user/avatar-1.jpg" alt="Generic placeholder image">
                                     <div class="media-body">
-                                        <p><strong>John Doe</strong><span class="n-time text-muted"><i class="icon feather icon-clock m-r-10"></i>5 min</span></p>
+                                        <p><strong>wakwak</strong><span class="n-time text-muted"><i class="icon feather icon-clock m-r-10"></i>5 min</span></p>
                                         <p>New ticket Added</p>
                                     </div>
                                 </div>
@@ -94,7 +101,7 @@
                         <div class="pro-head">
                             <i><i class="fas fa-user"></i></i>
                             &nbsp;
-                            <span>John Doe</span>
+                            <span><?php echo $_SESSION['nama' ] ; ?> </span>
                             <!-- <a href="auth-signin.html" class="dud-logout" title="Logout">
                                 <i class="feather icon-log-out"></i>
                             </a> -->

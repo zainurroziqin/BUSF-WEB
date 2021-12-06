@@ -40,6 +40,7 @@ $kandang_a= query("SELECT * FROM kandang_a")
                     </div>
                     <div class="card-body">
                         <div class="dt-responsive table-responsive">
+                        	 
                             <table id="simpletable" class="table table-striped table-bordered nowrap">
                                 <thead>
                                  <tr align="center">
@@ -70,14 +71,7 @@ $kandang_a= query("SELECT * FROM kandang_a")
                                         <td rowspan="2">Sore</td>
                                        
                                  </tr>
-                                  <tr align="center">
-                                    
-                                    
-                                     
-                                        
-                                         
-                                         
-                                           
+                                  <tr align="center">               
                                             <td>1</td>
                                       <td>2</td>
                                        <td>3</td>
@@ -90,25 +84,26 @@ $kandang_a= query("SELECT * FROM kandang_a")
                                  </tr>                                
                                 </thead>
                                 <tbody>
+                                
                                 <?php $i =1; ?>
                                 <?php $a =1; ?>
                           
                             <?php foreach ($kandang_a as $row ): ?>
                                 <td ><?=$i; ?></td>
-                                 <td ><?=$a; ?></td>
+                         <td ><?=$a; ?></td>
                                 <td><?= date ('d F Y', strtotime ($row["tanggal"])); ?></td>
-                                <td><?= $row["afkir"]; ?> ekor</td>
-                                <td><?= $row["mati"]; ?> ekor</td>
-                                <td><?= $row["pakan_total"]; ?> kg</td>
-                                <td><?= $row["sisa_1"]; ?> kg</td>
-                                <td><?= $row["sisa_2"]; ?> kg</td>
-                                <td><?= $row["sisa_3"]; ?> kg</td>
-                                <td><?= $row["sisa_4"]; ?> kg</td>
-                                <td><?= $row["sisa_5"]; ?> kg</td>
-                                <td><?= $row["sisa_6"]; ?> kg</td>
-                                <td>Total</td>
+                                <td><?= $row["afkir"]; ?> Ekor</td>
+                                <td><?= $row["mati"]; ?> Ekor</td>
+                                <td><?= $row["pakan_total"]; ?> Kg</td>
+                                <td><?= $row["sisa_1"]; ?> Kg</td>
+                                <td><?= $row["sisa_2"]; ?> Kg</td>
+                                <td><?= $row["sisa_3"]; ?> Kg</td>
+                                <td><?= $row["sisa_4"]; ?> Kg</td>
+                                <td><?= $row["sisa_5"]; ?> Kg</td>
+                                <td><?= $row["sisa_6"]; ?> Kg</td>
+                                <td><?php $total =  $row["sisa_1"]+$row["sisa_2"]+$row["sisa_3"]+$row["sisa_4"]+$row["sisa_5"]+$row["sisa_6"]; echo "$total"; ?>Kg</td>
                                 <td><?= $row["jumlah_telur"]; ?> Butir </td>
-                                <td><?= $row["berat_telur"]; ?> kg</td>
+                                <td><?= $row["berat_telur"]; ?> Kg</td>
                                 <td><?= $row["suhu_pagi"]; ?>℃</td>
                                 <td><?= $row["suhu_siang"]; ?>℃</td>
                                 <td><?= $row["suhu_sore"]; ?>℃</td>
@@ -121,6 +116,7 @@ $kandang_a= query("SELECT * FROM kandang_a")
                                 </tbody>
                               
                             </table>
+                             
                         </div>
                     </div>
                 </div>
