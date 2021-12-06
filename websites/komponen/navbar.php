@@ -102,6 +102,8 @@ if ( !isset($_SESSION["login"])){
                             <i><i class="fas fa-user"></i></i>
                             &nbsp;
                             <span><?php echo $_SESSION['nama' ] ; ?> </span>
+
+
                             <!-- <a href="auth-signin.html" class="dud-logout" title="Logout">
                                 <i class="feather icon-log-out"></i>
                             </a> -->

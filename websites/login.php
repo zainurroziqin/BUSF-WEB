@@ -1,10 +1,19 @@
 <?php
 session_start();
 ?>
+<html lang="en">
+
+<!-- Mirrored from ableproadmin.com/bootstrap/default/auth-signin-img-side.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 18 Nov 2021 19:01:19 GMT -->
+<?php 
+	include 'komponen/starting-pages.php';
+?>
+
 <?php
 
+
+
 if(isset($_SESSION["login"])){
-	header ("Location: Dashboard.php");
+	// header ("Location: Dashboard.php");
 }
 
  include '../configs/koneksi.php';
@@ -17,7 +26,7 @@ if (isset($_POST["submit"])) {
 	$result = mysqli_query ($conn, "SELECT * FROM user WHERE username = '$username'");
 	
  	
-// cek username
+	// cek username
 	if (mysqli_num_rows($result) === 1) {
 
 		// cek password
@@ -29,13 +38,70 @@ if (isset($_POST["submit"])) {
 			$_SESSION['password'] = $password;
 			$_SESSION['nama'] = $row['nama'];
 
+			if ($row["role"] == "Administrator") {
 				echo "
-		<script>
-		alert ('selamat datang $username')
-		document.location.href ='dashboard.php';
-		</script>";
-			exit;
+				<script>
+					setTimeout(function() { 
+						Swal.fire({
+							title: 'Berhasil Login!',
+							text: 'Selamat Datang $username',
+							icon: 'success',
+						});
+					},10);
+					window.setTimeout(function(){ 
+						window.location.replace('Dashboard');
+					},2500);
+				</script>
+			";
+			}else{
+				echo "
+				<script>
+					setTimeout(function() { 
+						Swal.fire({
+							title: 'Gagal Login!',
+							text: 'Anda bukan Admin',
+							icon: 'error',
+						});
+					},10);
+					window.setTimeout(function(){ 
+						window.location.replace('login');
+					},3000);
+				</script>
+				";
+			}
+
+			
+		}else{
+			echo "
+				<script>
+					setTimeout(function() { 
+						Swal.fire({
+							title: 'Gagal Login!',
+							text: 'Password salah',
+							icon: 'error',
+						});
+					},10);
+					window.setTimeout(function(){ 
+						window.location.replace('login');
+					},3000);
+				</script>
+			";
 		}
+	}else{
+		echo "
+				<script>
+					setTimeout(function() { 
+						Swal.fire({
+							title: 'Gagal Login!',
+							text: 'Username tidak ada',
+							icon: 'error',
+						});
+					},10);
+					window.setTimeout(function(){ 
+						window.location.replace('login');
+					},3000);
+				</script>
+			";
 	}
 
 	$error = true;
@@ -44,13 +110,6 @@ if (isset($_POST["submit"])) {
 }
 ?>
 
-<html lang="en">
-
-
-<!-- Mirrored from ableproadmin.com/bootstrap/default/auth-signin-img-side.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 18 Nov 2021 19:01:19 GMT -->
-<?php 
-	include 'komponen/starting-pages.php';
-?>
 
 <!-- [ signin-img ] start -->
 <div class="auth-wrapper align-items-stretch aut-bg-img">

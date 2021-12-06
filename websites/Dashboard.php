@@ -42,7 +42,7 @@
                                  $GetData = mysqli_fetch_array($GetTable);
                                  $GetNilai = $GetData['JumlahData'];
                                 echo "
-                                  $GetNilai Dikonfirmasi"; ?> <i class="fas fa-check"></i> </h5>  
+                                  $GetNilai Dikonfirmasi"; ?> <i class="fas fa-check"  ></i> </h5>  
                                   </div>
 
                                   <!-- munculkan data yang belum dikonfirmasi -->

@@ -10,6 +10,7 @@
 <!-- Apex Chart -->
 <script src="../assets/js/plugins/apexcharts.min.js"></script>
 <script src="../assets/js/pages/todo.js"></script>
+<script src="../assets/alert/sweetalert2.all.min.js" ></script>
 
 <script>
 	$(document).ready(function() {
