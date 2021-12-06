@@ -9,7 +9,7 @@ if ( !isset($_SESSION["login"])){
     header("Location: login.php");
     exit;
 }
-$conn= mysqli_connect("localhost", "root", "", "farm");
+// $conn= mysqli_connect("localhost", "root", "", "farm");
 
 // cek apakah tombol submit sudah ditekan atau belum
 if ( isset($_POST["submit"])){
@@ -19,15 +19,33 @@ if (tambahdatakandangC ($_POST) > 0 ) {
     // menggunakan javascript
     echo "
     <script>
-    alert ('data berhasil ditambahkan!')
-    document.location.href ='KandangC.php';
-    </script>";
+        setTimeout(function() { 
+            Swal.fire({
+                title: 'Berhasil!',
+                text: 'Data Berhasil Ditambahkan',
+                icon: 'success',
+            });
+        },10);
+        window.setTimeout(function(){ 
+            window.location.replace('KandangC');
+        },1800);
+    </script>
+";
 } else {
-    echo "
+echo "
     <script>
-    alert ('data gagal ditambahkan!')
-    document.location.href ='KandangC.php';
-    </script>";
+        setTimeout(function() { 
+            Swal.fire({
+                title: 'Gagal!',
+                text: 'Data Gagal',
+                icon: 'gagal',
+            });
+        },10);
+        window.setTimeout(function(){ 
+            window.location.replace('KandangC');
+        },2500);
+    </script>
+";
 }
 
 

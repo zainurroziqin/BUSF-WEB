@@ -17,16 +17,34 @@ if ( isset($_POST["submit"])){
 if (ubahA ($_POST) > 0 ) {
     // menggunakan javascript
     echo "
-    <script>
-    alert ('data berhasil diubah!')
-    document.location.href ='kandangA.php';
-    </script>";
+        <script>
+            setTimeout(function() { 
+                Swal.fire({
+                    title: 'Berhasil!',
+                    text: 'Data Berhasil Diedit',
+                    icon: 'success',
+                });
+            },10);
+            window.setTimeout(function(){ 
+                window.location.replace('KandangA');
+            },1800);
+        </script>
+    ";
 } else {
     echo "
-    <script>
-    alert ('data gagal diubah!')
-    document.location.href ='kandangA.php';
-    </script>";
+        <script>
+            setTimeout(function() { 
+                Swal.fire({
+                    title: 'Gagal!',
+                    text: 'Data Gagal Diedit',
+                    icon: 'gagal',
+                });
+            },10);
+            window.setTimeout(function(){ 
+                window.location.replace('KandangA');
+            },2500);
+        </script>
+    ";
 }
 
 

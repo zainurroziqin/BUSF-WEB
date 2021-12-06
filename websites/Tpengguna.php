@@ -11,16 +11,34 @@ if ( isset($_POST["submit"])){
 if (tambah ($_POST) > 0 ) {
 	// menggunakan javascript
 	echo "
-	<script>
-	alert ('data berhasil ditambahkan!')
-	document.location.href ='pengguna.php';
-	</script>";
+        <script>
+            setTimeout(function() { 
+                Swal.fire({
+                    title: 'Berhasil!',
+                    text: 'Data Berhasil Ditambahkan',
+                    icon: 'success',
+                });
+            },10);
+            window.setTimeout(function(){ 
+                window.location.replace('pengguna');
+            },1800);
+        </script>
+    ";
 } else {
-	echo "
-	<script>
-	alert ('data gagal ditambahkan!')
-	document.location.href ='pengguna.php';
-	</script>";
+    echo "
+        <script>
+            setTimeout(function() { 
+                Swal.fire({
+                    title: 'Gagal!',
+                    text: 'Data Gagal',
+                    icon: 'gagal',
+                });
+            },10);
+            window.setTimeout(function(){ 
+                window.location.replace('pengguna');
+            },2500);
+        </script>
+    ";
 }
 
  
