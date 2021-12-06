@@ -32,7 +32,7 @@ if ( !isset($_SESSION["login"])){
         </ul> -->
         <ul class="navbar-nav ml-auto">
             <li>
-                <div class="dropdown">
+                <!-- <div class="dropdown">
                     <a class="dropdown-toggle" href="#" data-toggle="dropdown"><i class="icon feather icon-bell"></i></a>
                     <div class="dropdown-menu dropdown-menu-right notification">
                         <div class="noti-head">
@@ -90,7 +90,7 @@ if ( !isset($_SESSION["login"])){
                             <a href="#!">show all</a>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </li>
             <li>
                 <div class="dropdown drp-user">
