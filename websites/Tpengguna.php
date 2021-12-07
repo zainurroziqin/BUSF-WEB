@@ -7,39 +7,83 @@ include 'komponen/starting-pages.php';
   // cek apakah tombol submit sudah ditekan atau belum
 if ( isset($_POST["submit"])){
 
-// cek apakah data berhasil ditambahkan atau tidak
-if (tambah ($_POST) > 0 ) {
-	// menggunakan javascript
-	echo "
-        <script>
-            setTimeout(function() { 
-                Swal.fire({
-                    title: 'Berhasil!',
-                    text: 'Data Berhasil Ditambahkan',
-                    icon: 'success',
-                });
-            },10);
-            window.setTimeout(function(){ 
-                window.location.replace('pengguna');
-            },1800);
-        </script>
-    ";
-} else {
-    echo "
-        <script>
-            setTimeout(function() { 
-                Swal.fire({
-                    title: 'Gagal!',
-                    text: 'Data Gagal',
-                    icon: 'gagal',
-                });
-            },10);
-            window.setTimeout(function(){ 
-                window.location.replace('pengguna');
-            },2500);
-        </script>
-    ";
-}
+    $nama = $_POST["nama"];
+    $alamat = $_POST["alamat"];
+    $username = stripslashes($_POST["username"]);
+    // $password = mysqli_real_escape_string($conn, $_POST["password"]);
+    $password = $_POST["password"];
+    $confirmPassword = $_POST["confirmPassword"];
+    
+    $role = $_POST["role"];
+    $telp = $_POST["telp"];
+    $tanggal_dibuat = $_POST["tanggal_dibuat"];
+
+    if($password != $confirmPassword){
+		echo "
+			<script>
+				setTimeout(function() { 
+					Swal.fire({
+						title: 'Gagal!',
+						text: 'Password tidak sama',
+						icon: 'gagal',
+					});
+				},10);
+				window.setTimeout(function(){ 
+					window.location.replace('Tpengguna');
+				},2500);
+			</script>
+		";
+	}else{
+		// enkripsi password
+		$password = password_hash($password, PASSWORD_DEFAULT);
+
+		// query insert data
+		$query = "INSERT INTO user
+					VALUES 
+					('','$nama','$alamat','$username','$password','$role','$telp','$tanggal_dibuat')
+					";
+		mysqli_query($conn,$query);
+		
+		// return mysqli_affected_rows($conn);
+
+		echo "
+                <script>
+                    setTimeout(function() { 
+                        Swal.fire({
+                            title: 'Berhasil!',
+                            text: 'Data Berhasil Ditambahkan',
+                            icon: 'success',
+                        });
+                    },10);
+                    window.setTimeout(function(){ 
+                        window.location.replace('pengguna');
+                    },1800);
+                </script>
+            ";
+	}
+
+
+
+    //cek apakah data berhasil ditambahkan atau tidak
+        // if (tambah ($_POST) > 0 ) {
+        //     // menggunakan javascript
+            
+        // } else {
+        //     echo "
+        //         <script>
+        //             setTimeout(function() { 
+        //                 Swal.fire({
+        //                     title: 'Gagal!',
+        //                     text: 'Data Gagalsdsds',
+        //                     icon: 'gagal',
+        //                 });
+        //             },10);
+        //             window.setTimeout(function(){ 
+        //                 window.location.replace('Tpengguna');
+        //             },2500);
+        //         </script>
+        //     ";
+        // }
 
  
 $tanggal = date("Ymd");
@@ -100,6 +144,9 @@ $tanggal = date("Ymd");
                                 </div>
                                 <div class="form-group">
                                     <input type="password" class="form-control form-control-user"  placeholder="Masukkan Password..." name="password"  required >
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" class="form-control form-control-user"  placeholder="Konfirmasi Password" name="confirmPassword"  required >
                                 </div>
                                 <button type="submit" class="btn btn-primary btn-user btn-block" name="submit">
                                     Buat Akun

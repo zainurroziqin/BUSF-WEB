@@ -13,29 +13,65 @@ function query ($query){
 
 }
 // ambil data dari tiap elemen dalam form index.php
-function tambah($data){
-global $conn;
-$nama = $data["nama"];
-$alamat = $data["alamat"];
-$username = stripslashes($data["username"]);
-$password = mysqli_real_escape_string($conn, $data["password"]);
-$role = $data["role"];
-$telp = $data["telp"];
-$tanggal_dibuat = $data["tanggal_dibuat"];
+// function tambah($data){
+// global $conn;
+// $nama = $data["nama"];
+// $alamat = $data["alamat"];
+// $username = stripslashes($data["username"]);
+// // $password = mysqli_real_escape_string($conn, $data["password"]);
+// $password = $data["password"];
+// $confirmPassword = $data["confirmPassword"];
 
-// enkripsi password
- $password = password_hash($password, PASSWORD_DEFAULT);
+// $role = $data["role"];
+// $telp = $data["telp"];
+// $tanggal_dibuat = $data["tanggal_dibuat"];
 
-// query insert data
-$query = "INSERT INTO user
-			VALUES 
-			('','$nama','$alamat','$username','$password','$role','$telp','$tanggal_dibuat')
-			";
-mysqli_query($conn,$query);
 
-return mysqli_affected_rows($conn);
 
-}
+// 	if($password != $confirmPassword){
+// 		echo "
+// 			<script>
+// 				setTimeout(function() { 
+// 					Swal.fire({
+// 						title: 'Gagal!',
+// 						text: 'Password tidak sama',
+// 						icon: 'gagal',
+// 					});
+// 				},10);
+// 				window.setTimeout(function(){ 
+// 					window.location.replace('Tpengguna');
+// 				},2500);
+// 			</script>
+// 		";
+// 	}else{
+// 		// enkripsi password
+// 		$password = password_hash($password, PASSWORD_DEFAULT);
+
+// 		// query insert data
+// 		$query = "INSERT INTO user
+// 					VALUES 
+// 					('','$nama','$alamat','$username','$password','$role','$telp','$tanggal_dibuat')
+// 					";
+// 		mysqli_query($conn,$query);
+// 		return mysqli_affected_rows($conn);
+
+// 		echo "
+//                 <script>
+//                     setTimeout(function() { 
+//                         Swal.fire({
+//                             title: 'Berhasil!',
+//                             text: 'Data Berhasil Ditambahkan',
+//                             icon: 'success',
+//                         });
+//                     },10);
+//                     window.setTimeout(function(){ 
+//                         window.location.replace('pengguna');
+//                     },1800);
+//                 </script>
+//             ";
+// 	}
+
+// }
 
 // hapus data User
 function hapus ($id){
