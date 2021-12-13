@@ -57,10 +57,10 @@ if ( !isset($_SESSION["login"])){
                 <li class="nav-item pcoded-hasmenu">
                     <a href="#!" class="nav-link"><span class="pcoded-micon"><i class="fas fa-calendar-alt"></i></span><span class="pcoded-mtext">Monthly Report</span></a>
                     <ul class="pcoded-submenu">
-                        <li><a href="#">Kandang A</a></li>
-                        <li><a href="#">Kandang B</a></li>
-                        <li><a href="#">Kandang C</a></li>
-                        <li><a href="#">kandang D</a></li>
+                        <li><a href="RBkandangA.php">Kandang A</a></li>
+                        <li><a href="RBkandangB.php">Kandang B</a></li>
+                        <li><a href="RBkandangC.php">Kandang C</a></li>
+                        <li><a href="RBkandangD.php">kandang D</a></li>
                     </ul>
 				</li>
                 <!-- <li class="nav-item"><a href="Logout.php" class="nav-link "><span class="pcoded-micon"><i class="fas fa-fw fa-sign-out-alt"></i></span><span class="pcoded-mtext">Logout</span></a></li> -->
