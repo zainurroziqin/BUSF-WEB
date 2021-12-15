@@ -44,6 +44,7 @@
                                 <thead>
                                     <tr>
                                         <th>No</th>
+                                          <th>Foto</th>
                                             <th>Nama</th>
                                             <th>Role</th>
                                             <th>Tanggal Dibuat</th>
@@ -55,7 +56,9 @@
                                 <?php foreach ($user as $usr ): ?>
                                     <tr>
                                     <td><?=$i; ?></td>
+                                    <td><img src="img/<?= $usr["gambar"]; ?>" width="50"> </td>
                                     <td><?= $usr["nama"]; ?></td>
+
                                     <td><?= $usr["role"]; ?></td>
                                     <td><?= date ('d F Y', strtotime ($usr["tanggal_dibuat"])); ?></td>
                                     <td>
