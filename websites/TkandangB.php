@@ -46,6 +46,7 @@ if (tambahdatakandangB ($_POST) > 0 ) {
             },2500);
         </script>
     ";
+}
 
 
 $tanggal = date("Ymd");
@@ -65,7 +66,7 @@ $tanggal = date("Ymd");
                             </div>
                             <ul class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="Dashboard.php"><i class="feather icon-home"></i></a></li>
-                                <li class="breadcrumb-item"><a href="KandangB.php">Kandang B</a></li>
+                                <li class="breadcrumb-item"><a href="KandangB.php">Kandang</a></li>
                                 <!-- <li class="breadcrumb-item"><a href="#!">Basic Initialization</a></li> -->
                             </ul>
                         </div>
@@ -95,7 +96,7 @@ $tanggal = date("Ymd");
                     <br>
                     <div class="row">
 
-                    <div class="col">
+                        <div class="col">
                             <h3>Pakan <i class="fas fa-utensils"></i></h3>
                             <div class="mb-3">
 
