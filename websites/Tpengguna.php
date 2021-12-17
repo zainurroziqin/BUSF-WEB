@@ -13,40 +13,45 @@ if ( isset($_POST["submit"])){
     // $password = mysqli_real_escape_string($conn, $_POST["password"]);
     $password = $_POST["password"];
     $confirmPassword = $_POST["confirmPassword"];
-    
     $role = $_POST["role"];
     $telp = $_POST["telp"];
     $tanggal_dibuat = $_POST["tanggal_dibuat"];
 
+    // upload gambar
+    $gambar = upload();
+    if (!$gambar) {
+        return false;
+    }
+
     if($password != $confirmPassword){
-		echo "
-			<script>
-				setTimeout(function() { 
-					Swal.fire({
-						title: 'Gagal!',
-						text: 'Password tidak sama',
-						icon: 'gagal',
-					});
-				},10);
-				window.setTimeout(function(){ 
-					window.location.replace('Tpengguna');
-				},2500);
-			</script>
-		";
-	}else{
-		// enkripsi password
-		$password = password_hash($password, PASSWORD_DEFAULT);
+        echo "
+            <script>
+                setTimeout(function() { 
+                    Swal.fire({
+                        title: 'Gagal!',
+                        text: 'Password tidak sama',
+                        icon: 'gagal',
+                    });
+                },10);
+                window.setTimeout(function(){ 
+                    window.location.replace('Tpengguna');
+                },2500);
+            </script>
+        ";
+    }else{
+        // enkripsi password
+        $password = password_hash($password, PASSWORD_DEFAULT);
 
-		// query insert data
-		$query = "INSERT INTO user
-					VALUES 
-					('','$nama','$alamat','$username','$password','$role','$telp','$tanggal_dibuat')
-					";
-		mysqli_query($conn,$query);
-		
-		// return mysqli_affected_rows($conn);
+        // query insert data
+        $query = "INSERT INTO user
+                    VALUES 
+                    ('','$nama','$alamat','$username','$password','$role','$telp','$tanggal_dibuat','gambar')
+                    ";
+        mysqli_query($conn,$query);
+        
+        // return mysqli_affected_rows($conn);
 
-		echo "
+        echo "
                 <script>
                     setTimeout(function() { 
                         Swal.fire({
@@ -60,7 +65,8 @@ if ( isset($_POST["submit"])){
                     },1800);
                 </script>
             ";
-	}
+    }
+
 
 
 
@@ -87,7 +93,7 @@ if ( isset($_POST["submit"])){
 
  
 $tanggal = date("Ymd");
-                                	
+                                    
                                
 }
 ?>
@@ -118,13 +124,14 @@ $tanggal = date("Ymd");
                     <div class="text-center">
                                 <h1 class="h4 text-gray-900 mb-4">Buat akun</h1>
                             </div>
-                            <form  class= "user"method="POST" action="" autocomplete="off">
+                            <form  class= "user"method="POST" action="" autocomplete="off" enctype="multipart/form-data">
                         <div class="form-group">
                                     <input type="hidden" class="form-control form-control-user"  placeholder="Masukkan Nama..." name="tanggal_dibuat" required  value="<?php echo date("Y-m-d"); ?>">
                                 </div>
                                 <div class="form-group">
                                     <input type="text" class="form-control form-control-user"  placeholder="Masukkan Nama..." name="nama" required >
                                 </div>
+                                
                                 <div class="form-group">
                                     <input type="text" class="form-control form-control-user" placeholder="Masukkan Alamat..." name="alamat" required >
                                 </div>
@@ -147,6 +154,9 @@ $tanggal = date("Ymd");
                                 </div>
                                 <div class="form-group">
                                     <input type="password" class="form-control form-control-user"  placeholder="Konfirmasi Password" name="confirmPassword"  required >
+                                </div>
+                                 <div class="form-group">
+                                    <input type="file" class="form-control form-control-user"  placeholder="Masukkan Foto..." name="gambar"  >
                                 </div>
                                 <button type="submit" class="btn btn-primary btn-user btn-block" name="submit">
                                     Buat Akun
