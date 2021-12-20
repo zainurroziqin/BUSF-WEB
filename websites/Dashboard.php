@@ -179,44 +179,47 @@
                 </div>
 
             </div>
-            <!-- visitors  end -->
-            <!-- progressbar static data start -->
-            <div class="col-md-8">
+            <!--  -->
+            <div class="col-sm-12">
                 <div class="card">
                     <div class="card-header">
-                        <h5>Total collected all time</h5>
+                        <h5>Grafik Data Kandang A</h5>
                     </div>
                     <div class="card-body">
-                        <div id="collected-chart"></div>
+                        <div id="sales-chart-kandang-a"></div>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
+            <!--  -->
+            <div class="col-sm-12">
                 <div class="card">
+                    <div class="card-header">
+                        <h5>Grafik Data Kandang B</h5>
+                    </div>
                     <div class="card-body">
-                        <h6>This Month</h6>
-                        <div class="row mt-3">
-                            <div class="col-6">
-                                <span class="d-block text-uppercase">Amount</span>
-                                <h3 class="mt-3">$2,144</h3>
-                                <div class="mt-3" id="transactions1"></div>
-                            </div>
-                            <div class="col-6">
-                                <span class="d-block text-uppercase">Sales</span>
-                                <h3 class="mt-3">100</h3>
-                                <div class="mt-3" id="transactions2"></div>
-                            </div>
-                        </div>
+                        <div id="sales-chart-kandang-b"></div>
                     </div>
                 </div>
             </div>
-            <div class="col-md-12">
+            <!--  -->
+            <div class="col-sm-12">
                 <div class="card">
                     <div class="card-header">
-                        <h5>Sales by membership</h5>
+                        <h5>Grafik Data Kandang C</h5>
                     </div>
                     <div class="card-body">
-                        <div id="sales-chart"></div>
+                        <div id="sales-chart-kandang-c"></div>
+                    </div>
+                </div>
+            </div>
+            <!--  -->
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Grafik Data Kandang D</h5>
+                    </div>
+                    <div class="card-body">
+                        <div id="sales-chart-kandang-d"></div>
                     </div>
                 </div>
             </div>
