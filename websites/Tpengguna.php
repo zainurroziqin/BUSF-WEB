@@ -8,6 +8,28 @@ include 'komponen/starting-pages.php';
 if ( isset($_POST["submit"])){
 
     $nama = $_POST["nama"];
+
+    // Input File
+   $ChooseGambar = strtolower($_FILES['gambar']['name']); // Mengambil nama file
+   $Patch = $_FILES['gambar']['tmp_name']; // Mengambil lokasi file
+   $CheckInput = $_FILES['gambar']['error']; // Mengambil bentuk error ketika upload file
+   $CheckSize = $_FILES['gambar']['size']; // Mengambil ukuran file yang di-upload
+   
+   // Menampung lokasi pemindahan file ke dalam variabel $MoveTO
+   $MoveTO = "../assets/images/user/";
+   
+   // Membatasi valid extension file yang boleh diinput
+   $ValidExt = ["jpg", "jpeg", "png"]; // Menampung valid extension dalam array
+   $GetNameFile = explode(".", $ChooseGambar); // Memisah nama file untuk mengambil ekstensi file 
+   $GetExt = end($GetNameFile); // Mengambil ekstensi file
+
+   // Membuat nama unik untuk file upload supaya tidak terduplikasi
+   $GetKodeBIO = uniqid(); // Mengambil kode bio otomatis dari file auto-code
+   $SetUniqName = $GetKodeBIO; // Membuat variabel baru untuk menampung kode bio
+   $SetUniqName .= "-"; // Menggabungkan kode bio dengan tanda (-)
+   $SetUniqName .= $ChooseGambar; // Menggabungkan kode bio dan tanda (-) dengan nama file
+
+
     $alamat = $_POST["alamat"];
     $username = stripslashes($_POST["username"]);
     // $password = mysqli_real_escape_string($conn, $_POST["password"]);
@@ -17,11 +39,11 @@ if ( isset($_POST["submit"])){
     $telp = $_POST["telp"];
     $tanggal_dibuat = $_POST["tanggal_dibuat"];
 
-    // upload gambar
-    $gambar = upload();
-    if (!$gambar) {
-        return false;
-    }
+
+     move_uploaded_file($Patch, $MoveTO.$SetUniqName);
+
+
+
 
     if($password != $confirmPassword){
         echo "
@@ -42,10 +64,11 @@ if ( isset($_POST["submit"])){
         // enkripsi password
         $password = password_hash($password, PASSWORD_DEFAULT);
 
-        // query insert data
+        move_uploaded_file($Patch, $MoveTO.$SetUniqName);
+         // query insert data
         $query = "INSERT INTO user
                     VALUES 
-                    ('','$nama','$alamat','$username','$password','$role','$telp','$tanggal_dibuat','gambar')
+                    ('','$nama','$SetUniqName','$alamat','$username','$password','$role','$telp','$tanggal_dibuat')
                     ";
         mysqli_query($conn,$query);
         
