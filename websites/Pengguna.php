@@ -56,7 +56,9 @@
                                 <?php foreach ($user as $usr ): ?>
                                     <tr>
                                     <td><?=$i; ?></td>
-                                    <td><img src="img/<?= $usr["gambar"]; ?>" width="50"> </td>
+                                    <td>
+                                     <img src="../assets/images/user/<?= $usr["gambar"]; ?>" class="img-fluid img-radius wid-40" alt="">
+                                        </td>
                                     <td><?= $usr["nama"]; ?></td>
 
                                     <td><?= $usr["role"]; ?></td>
