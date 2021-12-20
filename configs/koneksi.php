@@ -73,34 +73,7 @@ function query ($query){
 
 // }
 
-function upload (){
 
-    $namaFile = $FILES['gambar']['name'];
-    $ukuranFile = $_FILES['gambar']['size'];
-    $error = $_FILES['gambar']['error'];
-    $tmpName = $_FILES['gambar']['tmp_name'];
-
-
-    // cek upload
-    if ($error === 4) {
-        echo "<script>
-        alert('pilih gambar terlebih dahulu');
-        </script>";
-        return false;
-    }
-
-// cek ekstensi yang di upload
-    $ekstensiGambarValid = ['jpg', 'png', 'jpeg'];
-    $ekstensiGambar = explode('.', $namaFile);
-    $ekstensiGambar = strtolower(end($ekstensiGambar));
-    if (in_array($ekstensiGambar, $ekstensiGambarValid)) {
-    	   echo "<script>
-        alert('yang anda upload bukan gambar');
-        </script>";
-        return false;
-    }
-
-    }
     
 
     
