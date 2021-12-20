@@ -89,7 +89,7 @@ $tanggal = date("Ymd");
                                     <input type="hidden" name="id" value="<?= $kda["id"];?>">
 
                                   
-                                <input type="hidden" class="form-control form-control-user"  placeholder="Masukkan Nama..." name="tanggal" required  value="<?php echo date("Y-m-d"); ?>">
+                                <input type="hidden" class="form-control form-control-user"  placeholder="Masukkan Nama..." name="tanggal" required  value="<?= $kda["tanggal"]; ?>" readonly="" >
 
                                 </div>
                             </div>

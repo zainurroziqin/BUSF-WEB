@@ -45,6 +45,7 @@ if (ubahc ($_POST) > 0 ) {
             },2500);
         </script>
     ";
+}
 
 
 $tanggal = date("Ymd");
@@ -88,7 +89,7 @@ $tanggal = date("Ymd");
                                     <input type="hidden" name="id" value="<?= $kda["id"];?>">
 
                                   
-                                <input type="hidden" class="form-control form-control-user"  placeholder="Masukkan Nama..." name="tanggal" required  value="<?php echo date("Y-m-d"); ?>">
+                                <input type="hidden" class="form-control form-control-user"  placeholder="Masukkan Nama..." name="tanggal" required   value="<?= $kda["tanggal"]; ?>" >
 
                                 </div>
                             </div>
