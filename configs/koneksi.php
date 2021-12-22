@@ -83,8 +83,14 @@ function query ($query){
 // hapus data User
 function hapus ($id){
 	global $conn;
-	mysqli_query($conn,"DELETE FROM user WHERE id =$id");
+	$SelectData = mysqli_query($conn, "SELECT * FROM user WHERE id = '$id'");
+	$GetDataIMG = mysqli_fetch_array($SelectData);
+	$RemoveIMG = unlink("../assets/images/user/$GetDataIMG[gambar]");
+	if ($RemoveIMG) {
+			mysqli_query($conn,"DELETE FROM user WHERE id =$id");
 	return mysqli_affected_rows($conn);
+	}
+
 }
 
 // function ubah
