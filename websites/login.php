@@ -37,6 +37,7 @@ if (isset($_POST["submit"])) {
 			$_SESSION['username'] = $username;
 			$_SESSION['password'] = $password;
 			$_SESSION['nama'] = $row['nama'];
+			$_SESSION['gambar'] = $row['gambar'];
 
 			if ($row["role"] == "Administrator") {
 				echo "

@@ -4,8 +4,18 @@ if ( !isset($_SESSION["login"])){
     header("Location: login.php");
     exit;
 }
-   ?>
 
+
+
+   ?>
+<!-- <?php 
+// include '../configs/koneksi.php';
+// $query = "SELECT * FROM user WHERE nama = $_SESSION ['nama']";
+// $user = mysqli_query($conn,$query);
+
+
+ // $user = query("SELECT * FROM user");
+ ?> -->
 
 <div class="loader-bg">
     <div class="loader-track">
@@ -18,7 +28,7 @@ if ( !isset($_SESSION["login"])){
             
             <div class="">
                 <div class="main-menu-header">
-                    <img class="img-radius" src="../assets/images/user/avatar-2.jpg" alt="User-Profile-Image">
+                    <img class="img-radius" img src="../assets/images/user/<?= $_SESSION['gambar']; ?>" alt="User-Profile-Image">
                     <div class="user-details">
                         <div id="more-details"><?php echo $_SESSION['nama' ] ; ?></div>
                     </div>

@@ -57,7 +57,7 @@
                                     <tr>
                                     <td><?=$i; ?></td>
                                     <td>
-                                     <img src="../assets/images/user/<?= $usr["gambar"]; ?>" class="img-fluid img-radius wid-40" alt="">
+                                     <img src="../assets/images/user/<?= $usr["gambar"]; ?>" width= "60">
                                         </td>
                                     <td><?= $usr["nama"]; ?></td>
 
