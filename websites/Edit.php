@@ -65,6 +65,7 @@ if (ubah ($_POST) > 0 ) {
                             <ul class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="Dashboard.php"><i class="feather icon-home"></i></a></li>
                                 <li class="breadcrumb-item"><a href="Pengguna.php">Pengguna</a></li>
+                                <li class="breadcrumb-item"><a href="">Detail Data Pengguna</a></li>
                                 <!-- <li class="breadcrumb-item"><a href="#!">Basic Initialization</a></li> -->
                             </ul>
                         </div>
@@ -90,6 +91,7 @@ if (ubah ($_POST) > 0 ) {
                                             >
                                         </div>
                                     </div>
+                                    
                                     <div class="form-group row">
                                         <label for="alamat" class="col-sm-3 col-form-label">Alamat</label>
                                         <div class="col-sm-9">
@@ -118,6 +120,7 @@ if (ubah ($_POST) > 0 ) {
                                             <input type="text" class="form-control" name="username" id="username" value="<?=$user ["username"];?>">
                                         </div>
                                     </div>
+                                   
                                     <div class="mb-3">
                                         <button type="submit" name="submit" class="btn btn-primary"><i class="fas fa-edit"></i> Edit</button>
 
