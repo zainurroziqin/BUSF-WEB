@@ -134,6 +134,7 @@ $tanggal = date("Ymd");
                             <ul class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="Dashboard.php"><i class="feather icon-home"></i></a></li>
                                 <li class="breadcrumb-item"><a href="Pengguna.php">Pengguna</a></li>
+                                 <li class="breadcrumb-item"><a href="">Tambah Data Pengguna</a></li>
                                 <!-- <li class="breadcrumb-item"><a href="#!">Basic Initialization</a></li> -->
                             </ul>
                         </div>
@@ -179,7 +180,7 @@ $tanggal = date("Ymd");
                                     <input type="password" class="form-control form-control-user"  placeholder="Konfirmasi Password" name="confirmPassword"  required >
                                 </div>
                                  <div class="form-group">
-                                    <input type="file" class="form-control form-control-user"  placeholder="Masukkan Foto..." name="gambar"  >
+                                    <input type="file" class="form-control form-control-user"  placeholder="Masukkan Foto..." name="gambar" required="" >
                                 </div>
                                 <button type="submit" class="btn btn-primary btn-user btn-block" name="submit">
                                     Buat Akun

@@ -66,7 +66,8 @@ $tanggal = date("Ymd");
                             </div>
                             <ul class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="Dashboard.php"><i class="feather icon-home"></i></a></li>
-                                <li class="breadcrumb-item"><a href="KandangA.php">Kandang</a></li>
+                                <li class="breadcrumb-item"><a href="KandangA.php">Kandang A</a></li>
+                                 <li class="breadcrumb-item"><a href="">Tambah Data Kandang A</a></li>
                                 <!-- <li class="breadcrumb-item"><a href="#!">Basic Initialization</a></li> -->
                             </ul>
                         </div>
