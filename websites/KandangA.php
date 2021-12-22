@@ -22,7 +22,7 @@ $kandang_a= query("SELECT * FROM kandang_a")
                             </div>
                             <ul class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="Dashboard.php"><i class="feather icon-home"></i></a></li>
-                                <li class="breadcrumb-item"><a href="#!">Kandang</a></li>
+                                <li class="breadcrumb-item"><a href="#!">Kandang A</a></li>
                                 <!-- <li class="breadcrumb-item"><a href="#!">Basic Initialization</a></li> -->
                             </ul>
                         </div>
