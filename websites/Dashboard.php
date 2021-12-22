@@ -180,46 +180,14 @@
 
             </div>
             <!--  -->
-            <div class="col-sm-12">
+           
+            <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
                         <h5>Grafik Data Kandang A</h5>
                     </div>
                     <div class="card-body">
-                        <div id="sales-chart-kandang-a"></div>
-                    </div>
-                </div>
-            </div>
-            <!--  -->
-            <div class="col-sm-12">
-                <div class="card">
-                    <div class="card-header">
-                        <h5>Grafik Data Kandang B</h5>
-                    </div>
-                    <div class="card-body">
-                        <div id="sales-chart-kandang-b"></div>
-                    </div>
-                </div>
-            </div>
-            <!--  -->
-            <div class="col-sm-12">
-                <div class="card">
-                    <div class="card-header">
-                        <h5>Grafik Data Kandang C</h5>
-                    </div>
-                    <div class="card-body">
-                        <div id="sales-chart-kandang-c"></div>
-                    </div>
-                </div>
-            </div>
-            <!--  -->
-            <div class="col-sm-12">
-                <div class="card">
-                    <div class="card-header">
-                        <h5>Grafik Data Kandang D</h5>
-                    </div>
-                    <div class="card-body">
-                        <div id="sales-chart-kandang-d"></div>
+                        <div id="sales-chart"></div>
                     </div>
                 </div>
             </div>
@@ -228,6 +196,73 @@
         <!-- [ Main Content ] end -->
     </div>
 </div>
+
+
+<?php 
+    $GetMin = mysqli_query($conn, "SELECT * FROM kandang_a");
+    $jumlahData = mysqli_num_rows($GetMin);
+ 
+    $angka = array();
+    $s = 1;
+ 
+    $dataMinggu = array();
+    $dataHenday = array();
+    $GetFCRM = array();
+    $FCR = array();
+
+    $ayam = mysqli_query($conn, "SELECT * FROM ayam WHERE namaKandang = 'kandang_a'");
+    // $jumlahayam = mysqli_fetch_array($ayam);
+
+    while($Data = mysqli_fetch_array($ayam)){
+       $jumlahAyam =  $Data['JumlahAyam'];
+    }
+
+    // echo $jumlahAyam;
+ 
+     // for ($i = 1; $i <= $jumlahData; $i++) {
+ 
+         
+     //     $s = $s + 7;
+     //     $angka[] = $s;
+ 
+     //     // for(j=1; $j<= $)
+     //     // // $GetMinggu = mysqli_query($conn, "SELECT SUM(pakan_total) AS JumlahPakan, SUM(berat_telur) AS JumlahBT FROM kandang_a WHERE id BETWEEN '1' AND '7'");
+         
+     // }
+ 
+     
+     for ($i = 0; ; $i+=7) {
+         if ($i > $jumlahData) {
+             break;
+         }
+         $angka[] = $i;
+ 
+     }
+ 
+     
+     for($i = 1; $i<count($angka); $i++){
+ 
+        $angka[$i-1] += 1;
+        $dataMinggu[$i] = mysqli_query($conn, "SELECT SUM(pakan_total) AS JumlahPakan, SUM(berat_telur) AS JumlahBT FROM kandang_a WHERE id BETWEEN ".$angka[$i-1]." AND ".$angka[$i]);
+        //  $dataHenday[]
+        $dataEM[$i] = mysqli_query($conn, "SELECT SUM(berat_telur) AS JumlahBT FROM kandang_a WHERE id BETWEEN ".$angka[$i-1]." AND ".$angka[$i]);
+         
+        
+        $GetFCRM[$i] = mysqli_fetch_array($dataMinggu[$i]);
+        $FCR[$i] = $GetFCRM[$i]['JumlahPakan']/$GetFCRM[$i]['JumlahBT'];
+        //  $Henday[$i] $get
+        $GetEM[$i] = mysqli_fetch_array($dataEM[$i]);
+        $EggMas[$i] = $GetEM[$i]['JumlahBT']/$jumlahAyam * 1000;
+
+        $dataHD[$i] = mysqli_query($conn, "SELECT SUM(jumlah_telur) AS JumlahBT FROM kandang_a WHERE id BETWEEN ".$angka[$i-1]." AND ".$angka[$i]);
+        $GetHD[$i] = mysqli_fetch_array($dataHD[$i]);
+        $HenDay[$i] = $GetHD[$i]['JumlahBT']/$jumlahAyam * 100;
+         
+    }
+ 
+
+ 
+?>
 
 <?php 
     include 'komponen/closing-pages.php';
