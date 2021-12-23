@@ -6,7 +6,13 @@
     include '../configs/koneksi.php';
 ?>
 <?php 
-$kandang_d= query("SELECT * FROM kandang_d")
+$kandang_d= query("SELECT * FROM kandang_d");
+
+$ayam = mysqli_query($conn, "SELECT * FROM ayam WHERE namaKandang = 'kandang_d'");
+
+while($Data = mysqli_fetch_array($ayam)){
+    $jumlahAyam =  $Data['JumlahAyam'];
+    }
  ?>
 <!-- <div class="pcoded-main-container"> -->
     <section class="pcoded-main-container">
@@ -18,7 +24,7 @@ $kandang_d= query("SELECT * FROM kandang_d")
                     <div class="row align-items-center">
                         <div class="col-md-12">
                             <div class="page-header-title">
-                                <h5 class="m-b-10">Kandang D</h5>
+                                <h5 class="m-b-10">Kandang C</h5>
                             </div>
                             <ul class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="Dashboard.php"><i class="feather icon-home"></i></a></li>
@@ -32,33 +38,38 @@ $kandang_d= query("SELECT * FROM kandang_d")
 
             <div class="col-sm-12">
                 <div class="card">
-                    <div class="card-header">
-                        <!-- <h5>Kandang A</h5> --><center>
-                       <h3 >LAPORAN DATA KANDANG D</h3>
-                       <h3>BAROKAH UTAMA FARM</h3>
-                       </center>
-                    </div>
+                    
                     <div class="card-body">
                         <div class="dt-responsive table-responsive">
-                            <table id="simpletable" class="table table-striped table-bordered nowrap">
+                           
+                            <table id="tbl_exporttable_to_xls" class="table table-striped table-bordered nowrap">
+
                                 <thead>
+                                    <tr>
+                            <td colspan = "21" align="center">    <h3 >LAPORAN DATA KANDANG D</h3></td>
+                      
+                       </tr>
+                       <tr>
+                       <td colspan ="21" align="center"><h3>BAROKAH UTAMA FARM</h3></td>
+                       <tr>
+                       <td colspan ="21" align="right"><h5>Jumlah Ayam : <?php echo $jumlahAyam ?></h5></td>
+                       </tr>
+                       </tr>
                                  <tr align="center">
-                                     <td rowspan="3">Hari</td>
-                                      <td rowspan="3">Minggu</td>
+                                     <td rowspan="3">Hari</td>                                     
                                        <td rowspan="3">Tanggal</td>
-                                        <td colspan="2">Jumlah ayam</td>
-                                      
+                                        <td colspan="3">Jumlah ayam</td>                                   
                                            <td colspan="8" >Pemberian Pakan</td>
                                             <td colspan="2">Produksi Telur</td>
                                       <td colspan="3">Suhu Kandang</td>
-                                      
+                                      <td rowspan="3">Hen Day</td>
+                                      <td rowspan="3">FCR</td>
+                                      <td rowspan="3">Egg Mass</td>
                                  </tr>
-                                 <tr align="center">
-                                     
-                                      
-                                     
+                                 <tr align="center">                                                                                                          
                                         <td rowspan="2">Afkir</td>
                                          <td rowspan="2">Mati</td>
+                                         <td rowspan="2">Jumlah Ayam</td>
                                           <td rowspan="2">Total Pakan</td>
                                            <td colspan="6">Sisa Pakan Per Baris</td>
                                            
@@ -70,14 +81,7 @@ $kandang_d= query("SELECT * FROM kandang_d")
                                         <td rowspan="2">Sore</td>
                                        
                                  </tr>
-                                  <tr align="center">
-                                    
-                                    
-                                     
-                                        
-                                         
-                                         
-                                           
+                                  <tr align="center">               
                                             <td>1</td>
                                       <td>2</td>
                                        <td>3</td>
@@ -90,15 +94,17 @@ $kandang_d= query("SELECT * FROM kandang_d")
                                  </tr>                                
                                 </thead>
                                 <tbody>
+                                
                                 <?php $i =1; ?>
-                                <?php $a =1; ?>
+                               
                           
                             <?php foreach ($kandang_d as $row ): ?>
                                 <td ><?=$i; ?></td>
-                                 <td ><?=$a; ?></td>
+                        
                                 <td><?= date ('d F Y', strtotime ($row["tanggal"])); ?></td>
                                 <td><?= $row["afkir"]; ?> Ekor</td>
                                 <td><?= $row["mati"]; ?> Ekor</td>
+                                <td>1000</td>
                                 <td><?= $row["pakan_total"]; ?> Kg</td>
                                 <td><?= $row["sisa_1"]; ?> Kg</td>
                                 <td><?= $row["sisa_2"]; ?> Kg</td>
@@ -112,24 +118,48 @@ $kandang_d= query("SELECT * FROM kandang_d")
                                 <td><?= $row["suhu_pagi"]; ?>℃</td>
                                 <td><?= $row["suhu_siang"]; ?>℃</td>
                                 <td><?= $row["suhu_sore"]; ?>℃</td>
+                                <td>cek></td>
+                                <td><?php $fcr =  $row["pakan_total"]/$row["berat_telur"]; echo "$fcr";?></td>
+                                <td>test2</td>
                                 
                                 </tr>
                                 <?php $i ++; ?>
-                                  <?php $a ++; ?>
+                                
                             <?php endforeach; ?>
 
                                 </tbody>
                               
                             </table>
+                               
                         </div>
                     </div>
+                    <div class="mt-2 mb-2 ml-3 ">
+<button type="button"  class="btn btn-danger mr-4" onclick = "ExportToExcel('xlsx')"><i class="fas fa-edit" ></i> Cetak PDF</button>
+
+                         </div>
                 </div>
             </div>
         </div>
     </section>
 
 <!-- </div> -->
-
+<script src="https://unpkg.com/xlsx@0.15.1/dist/xlsx.full.min.js"></script>
+<script>
+   function ExportToExcel(type, fn, dl) {
+      var elt = document.getElementById('tbl_exporttable_to_xls');
+      var wb = XLSX.utils.table_to_book(elt, {
+         sheet: "sheet1",
+         dateNF: 'dd-mm-yyyy'
+      });
+      return dl ?
+      XLSX.write(wb, {
+         bookType: type,
+         bookSST: true,
+         type: 'base64'
+      }) :
+      XLSX.writeFile(wb, fn || ('Report Data Kandang A.' + (type || 'xlsx')));
+   }
+</script>
 <?php
     include 'komponen/closing-pages.php';
 ?>
