@@ -6,7 +6,7 @@
     include '../configs/koneksi.php';
 ?>
 <?php 
-$kandang_a= query("SELECT * FROM kandang_a");
+$kandang_a= query("SELECT * FROM kandang_a WHERE keterangan = 'Terkonfirmasi'");
 
 $ayam = mysqli_query($conn, "SELECT * FROM ayam WHERE namaKandang = 'kandang_a'");
 
@@ -52,13 +52,14 @@ while($Data = mysqli_fetch_array($ayam)){
                        <tr>
                        <td colspan ="21" align="center"><h3>BAROKAH UTAMA FARM</h3></td>
                        <tr>
-                       <td colspan ="21" align="right"><h5>Jumlah Ayam : <?php echo $jumlahAyam ?></h5></td>
+                       <td colspan ="21" align="right"><h5>Jumlah Ayam : <?php echo $jumlahAyam ?></h5>
+                       </td>
                        </tr>
                        </tr>
                                  <tr align="center">
                                      <td rowspan="3">Hari</td>                                     
                                        <td rowspan="3">Tanggal</td>
-                                        <td colspan="2">Jumlah ayam</td>                                   
+                                        <td colspan="2">Jumlah Ayam</td>                                   
                                            <td colspan="8" >Pemberian Pakan</td>
                                             <td colspan="2">Produksi Telur</td>
                                       <td colspan="3">Suhu Kandang</td>

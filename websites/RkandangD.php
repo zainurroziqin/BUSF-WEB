@@ -6,7 +6,7 @@
     include '../configs/koneksi.php';
 ?>
 <?php 
-$kandang_d= query("SELECT * FROM kandang_d");
+$kandang_d= query("SELECT * FROM kandang_d WHERE keterangan = 'Terkonfirmasi'");
 
 $ayam = mysqli_query($conn, "SELECT * FROM ayam WHERE namaKandang = 'kandang_d'");
 
@@ -58,7 +58,7 @@ while($Data = mysqli_fetch_array($ayam)){
                                  <tr align="center">
                                      <td rowspan="3">Hari</td>                                     
                                        <td rowspan="3">Tanggal</td>
-                                        <td colspan="3">Jumlah ayam</td>                                   
+                                        <td colspan="2">Jumlah Ayam</td>                                   
                                            <td colspan="8" >Pemberian Pakan</td>
                                             <td colspan="2">Produksi Telur</td>
                                       <td colspan="3">Suhu Kandang</td>
@@ -69,7 +69,6 @@ while($Data = mysqli_fetch_array($ayam)){
                                  <tr align="center">                                                                                                          
                                         <td rowspan="2">Afkir</td>
                                          <td rowspan="2">Mati</td>
-                                         <td rowspan="2">Jumlah Ayam</td>
                                           <td rowspan="2">Total Pakan</td>
                                            <td colspan="6">Sisa Pakan Per Baris</td>
                                            
@@ -104,7 +103,6 @@ while($Data = mysqli_fetch_array($ayam)){
                                 <td><?= date ('d F Y', strtotime ($row["tanggal"])); ?></td>
                                 <td><?= $row["afkir"]; ?> Ekor</td>
                                 <td><?= $row["mati"]; ?> Ekor</td>
-                                <td>1000</td>
                                 <td><?= $row["pakan_total"]; ?> Kg</td>
                                 <td><?= $row["sisa_1"]; ?> Kg</td>
                                 <td><?= $row["sisa_2"]; ?> Kg</td>
