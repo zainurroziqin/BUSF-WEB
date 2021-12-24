@@ -142,6 +142,18 @@ $suhu_sore = $kandang_a["suhu_sore"];
 $nama = $kandang_a["nama"];
 $keterangan = $kandang_a["keterangan"];
 
+$ayam = mysqli_query($conn, "SELECT * FROM ayam WHERE namaKandang = 'kandang_a'");
+
+while($Data = mysqli_fetch_array($ayam)){
+    $jumlahAyam =  $Data['JumlahAyam'];
+}
+       
+$totalAyam = $jumlahAyam - $mati - $afkir;
+
+$queryAyam = "UPDATE ayam SET JumlahAyam= $totalAyam WHERE namaKandang = 'kandang_a'";
+
+
+mysqli_query($conn,$queryAyam);
 // query insert data
 $query = "INSERT INTO kandang_a
 			VALUES 
@@ -156,6 +168,28 @@ return mysqli_affected_rows($conn);
 // function hapus kandang A
 function hapusA ($id){
 	global $conn;
+
+	$idNow = mysqli_query($conn, "SELECT * FROM kandang_a WHERE id = $id");
+
+	while($Data = mysqli_fetch_array($idNow)){
+    	$ayamAfkir =  $Data['afkir'];
+		$ayamMati =  $Data['mati'];
+	}
+
+	$ayam = mysqli_query($conn, "SELECT * FROM ayam WHERE namaKandang = 'kandang_a'");
+
+	while($Data = mysqli_fetch_array($ayam)){
+		$jumlahAyam =  $Data['JumlahAyam'];
+	}
+       
+	$totalAyam = $jumlahAyam + $ayamMati + $ayamAfkir;
+
+	
+	//query update 
+	$queryAyam = "UPDATE ayam SET JumlahAyam= $totalAyam WHERE namaKandang = 'kandang_a'";
+	mysqli_query($conn,$queryAyam);
+
+	//query hapus
 	mysqli_query($conn,"DELETE FROM kandang_a WHERE id =$id");
 	return mysqli_affected_rows($conn);
 }
@@ -179,6 +213,31 @@ $suhu_pagi = $kandang_a["suhu_pagi"];
 $suhu_siang = $kandang_a["suhu_siang"];
 $suhu_sore = $kandang_a["suhu_sore"];
 $keterangan = $kandang_a["keterangan"];
+
+
+$idNow = mysqli_query($conn, "SELECT * FROM kandang_a WHERE id = $id");
+
+while($Data = mysqli_fetch_array($idNow)){
+    $ayamAfkir =  $Data['afkir'];
+	$ayamMati =  $Data['mati'];
+}
+
+if($ayamAfkir != $afkir && $ayamMati != $mati){
+	$ayam = mysqli_query($conn, "SELECT * FROM ayam WHERE namaKandang = 'kandang_a'");
+
+	while($Data = mysqli_fetch_array($ayam)){
+    	$jumlahAyam =  $Data['JumlahAyam'];
+	}
+       
+	$totalAyam = $jumlahAyam + $ayamAfkir + $ayamMati - $mati - $afkir;
+
+	$queryAyam = "UPDATE ayam SET JumlahAyam= $totalAyam WHERE namaKandang = 'kandang_a'";
+
+
+	mysqli_query($conn,$queryAyam);
+}
+
+
 
 // query insert data
 $query = "UPDATE kandang_a SET 
@@ -231,6 +290,19 @@ $suhu_sore = $kandang_b["suhu_sore"];
 $nama = $kandang_b["nama"];
 $keterangan = $kandang_b["keterangan"];
 
+$ayam = mysqli_query($conn, "SELECT * FROM ayam WHERE namaKandang = 'kandang_b'");
+
+while($Data = mysqli_fetch_array($ayam)){
+    $jumlahAyam =  $Data['JumlahAyam'];
+}
+       
+$totalAyam = $jumlahAyam - $mati - $afkir;
+
+$queryAyam = "UPDATE ayam SET JumlahAyam= $totalAyam WHERE namaKandang = 'kandang_b'";
+
+
+mysqli_query($conn,$queryAyam);
+
 // query insert data
 $query = "INSERT INTO kandang_b
 			VALUES 
@@ -262,6 +334,28 @@ $suhu_siang = $kandang_b["suhu_siang"];
 $suhu_sore = $kandang_b["suhu_sore"];
 $keterangan = $kandang_b["keterangan"];
 
+$idNow = mysqli_query($conn, "SELECT * FROM kandang_b WHERE id = $id");
+
+while($Data = mysqli_fetch_array($idNow)){
+    $ayamAfkir =  $Data['afkir'];
+	$ayamMati =  $Data['mati'];
+}
+
+if($ayamAfkir != $afkir && $ayamMati != $mati){
+	$ayam = mysqli_query($conn, "SELECT * FROM ayam WHERE namaKandang = 'kandang_b'");
+
+	while($Data = mysqli_fetch_array($ayam)){
+    	$jumlahAyam =  $Data['JumlahAyam'];
+	}
+       
+	$totalAyam = $jumlahAyam + $ayamAfkir + $ayamMati - $mati - $afkir;
+
+	$queryAyam = "UPDATE ayam SET JumlahAyam= $totalAyam WHERE namaKandang = 'kandang_b'";
+
+
+	mysqli_query($conn,$queryAyam);
+}
+
 // query insert data
 $query = "UPDATE kandang_b SET 
 			tanggal = '$tanggal',
@@ -291,6 +385,28 @@ return mysqli_affected_rows($conn);
 // function hapus kandang B
 function hapusB ($id){
 	global $conn;
+
+	$idNow = mysqli_query($conn, "SELECT * FROM kandang_b WHERE id = $id");
+
+	while($Data = mysqli_fetch_array($idNow)){
+    	$ayamAfkir =  $Data['afkir'];
+		$ayamMati =  $Data['mati'];
+	}
+
+	$ayam = mysqli_query($conn, "SELECT * FROM ayam WHERE namaKandang = 'kandang_b'");
+
+	while($Data = mysqli_fetch_array($ayam)){
+		$jumlahAyam =  $Data['JumlahAyam'];
+	}
+       
+	$totalAyam = $jumlahAyam + $ayamMati + $ayamAfkir;
+
+	
+	//query update 
+	$queryAyam = "UPDATE ayam SET JumlahAyam= $totalAyam WHERE namaKandang = 'kandang_b'";
+	mysqli_query($conn,$queryAyam);
+
+	//query delete
 	mysqli_query($conn,"DELETE FROM kandang_b WHERE id =$id");
 	return mysqli_affected_rows($conn);
 }
@@ -317,6 +433,19 @@ $suhu_siang = $kandang_c["suhu_siang"];
 $suhu_sore = $kandang_c["suhu_sore"];
 $nama = $kandang_c["nama"];
 $keterangan = $kandang_c["keterangan"];
+
+$ayam = mysqli_query($conn, "SELECT * FROM ayam WHERE namaKandang = 'kandang_c'");
+
+while($Data = mysqli_fetch_array($ayam)){
+    $jumlahAyam =  $Data['JumlahAyam'];
+}
+       
+$totalAyam = $jumlahAyam - $mati - $afkir;
+
+$queryAyam = "UPDATE ayam SET JumlahAyam= $totalAyam WHERE namaKandang = 'kandang_c'";
+
+
+mysqli_query($conn,$queryAyam);
 
 // query insert data
 $query = "INSERT INTO kandang_c
@@ -351,6 +480,28 @@ $suhu_siang = $kandang_c["suhu_siang"];
 $suhu_sore = $kandang_c["suhu_sore"];
 $keterangan = $kandang_c["keterangan"];
 
+$idNow = mysqli_query($conn, "SELECT * FROM kandang_c WHERE id = $id");
+
+while($Data = mysqli_fetch_array($idNow)){
+    $ayamAfkir =  $Data['afkir'];
+	$ayamMati =  $Data['mati'];
+}
+
+if($ayamAfkir != $afkir && $ayamMati != $mati){
+	$ayam = mysqli_query($conn, "SELECT * FROM ayam WHERE namaKandang = 'kandang_c'");
+
+	while($Data = mysqli_fetch_array($ayam)){
+    	$jumlahAyam =  $Data['JumlahAyam'];
+	}
+       
+	$totalAyam = $jumlahAyam + $ayamAfkir + $ayamMati - $mati - $afkir;
+
+	$queryAyam = "UPDATE ayam SET JumlahAyam= $totalAyam WHERE namaKandang = 'kandang_c'";
+
+
+	mysqli_query($conn,$queryAyam);
+}
+
 // query insert data
 $query = "UPDATE kandang_c SET 
 			tanggal = '$tanggal',
@@ -380,6 +531,28 @@ return mysqli_affected_rows($conn);
 // function hapus kandang B
 function hapusC ($id){
 	global $conn;
+
+	$idNow = mysqli_query($conn, "SELECT * FROM kandang_c WHERE id = $id");
+
+	while($Data = mysqli_fetch_array($idNow)){
+    	$ayamAfkir =  $Data['afkir'];
+		$ayamMati =  $Data['mati'];
+	}
+
+	$ayam = mysqli_query($conn, "SELECT * FROM ayam WHERE namaKandang = 'kandang_c'");
+
+	while($Data = mysqli_fetch_array($ayam)){
+		$jumlahAyam =  $Data['JumlahAyam'];
+	}
+       
+	$totalAyam = $jumlahAyam + $ayamMati + $ayamAfkir;
+
+	
+	//query update 
+	$queryAyam = "UPDATE ayam SET JumlahAyam= $totalAyam WHERE namaKandang = 'kandang_c'";
+	mysqli_query($conn,$queryAyam);
+
+	//query delete
 	mysqli_query($conn,"DELETE FROM kandang_c WHERE id =$id");
 	return mysqli_affected_rows($conn);
 }
@@ -406,6 +579,19 @@ $suhu_siang = $kandang_d["suhu_siang"];
 $suhu_sore = $kandang_d["suhu_sore"];
 $nama = $kandang_d["nama"];
 $keterangan = $kandang_d["keterangan"];
+
+$ayam = mysqli_query($conn, "SELECT * FROM ayam WHERE namaKandang = 'kandang_d'");
+
+while($Data = mysqli_fetch_array($ayam)){
+    $jumlahAyam =  $Data['JumlahAyam'];
+}
+       
+$totalAyam = $jumlahAyam - $mati - $afkir;
+
+$queryAyam = "UPDATE ayam SET JumlahAyam= $totalAyam WHERE namaKandang = 'kandang_d'";
+
+
+mysqli_query($conn,$queryAyam);
 
 // query insert data
 $query = "INSERT INTO kandang_d
@@ -440,6 +626,28 @@ $suhu_siang = $kandang_d["suhu_siang"];
 $suhu_sore = $kandang_d["suhu_sore"];
 $keterangan = $kandang_d["keterangan"];
 
+$idNow = mysqli_query($conn, "SELECT * FROM kandang_d WHERE id = $id");
+
+while($Data = mysqli_fetch_array($idNow)){
+    $ayamAfkir =  $Data['afkir'];
+	$ayamMati =  $Data['mati'];
+}
+
+if($ayamAfkir != $afkir && $ayamMati != $mati){
+	$ayam = mysqli_query($conn, "SELECT * FROM ayam WHERE namaKandang = 'kandang_d'");
+
+	while($Data = mysqli_fetch_array($ayam)){
+    	$jumlahAyam =  $Data['JumlahAyam'];
+	}
+       
+	$totalAyam = $jumlahAyam + $ayamAfkir + $ayamMati - $mati - $afkir;
+
+	$queryAyam = "UPDATE ayam SET JumlahAyam= $totalAyam WHERE namaKandang = 'kandang_d'";
+
+
+	mysqli_query($conn,$queryAyam);
+}
+
 // query insert data
 $query = "UPDATE kandang_d SET 
 			tanggal = '$tanggal',
@@ -470,6 +678,28 @@ return mysqli_affected_rows($conn);
 // function hapus kandang B
 function hapusD ($id){
 	global $conn;
+
+	$idNow = mysqli_query($conn, "SELECT * FROM kandang_d WHERE id = $id");
+
+	while($Data = mysqli_fetch_array($idNow)){
+    	$ayamAfkir =  $Data['afkir'];
+		$ayamMati =  $Data['mati'];
+	}
+
+	$ayam = mysqli_query($conn, "SELECT * FROM ayam WHERE namaKandang = 'kandang_d'");
+
+	while($Data = mysqli_fetch_array($ayam)){
+		$jumlahAyam =  $Data['JumlahAyam'];
+	}
+       
+	$totalAyam = $jumlahAyam + $ayamMati + $ayamAfkir;
+
+	
+	//query update 
+	$queryAyam = "UPDATE ayam SET JumlahAyam= $totalAyam WHERE namaKandang = 'kandang_d'";
+	mysqli_query($conn,$queryAyam);
+
+	//query delete
 	mysqli_query($conn,"DELETE FROM kandang_d WHERE id =$id");
 	return mysqli_affected_rows($conn);
 }
