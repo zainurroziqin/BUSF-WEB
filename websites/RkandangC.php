@@ -116,9 +116,9 @@ while($Data = mysqli_fetch_array($ayam)){
                                 <td><?= $row["suhu_pagi"]; ?>℃</td>
                                 <td><?= $row["suhu_siang"]; ?>℃</td>
                                 <td><?= $row["suhu_sore"]; ?>℃</td>
-                                <td>cek></td>
-                                <td><?php $fcr =  $row["pakan_total"]/$row["berat_telur"]; echo "$fcr";?></td>
-                                <td>test2</td>
+                                <td> <?php $henday = $row["jumlah_telur"]/$jumlahAyam * 100; echo round("$henday",2);?></td>
+                                <td><?php $fcr =  $row["pakan_total"]/$row["berat_telur"]; echo round("$fcr",2);?></td>
+                                <td><?php $eggmas = $row["berat_telur"]/$jumlahAyam * 1000; echo round("$eggmas", 2); ?></td>
                                 
                                 </tr>
                                 <?php $i ++; ?>

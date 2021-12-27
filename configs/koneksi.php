@@ -1,5 +1,6 @@
 <?php 
-$conn= mysqli_connect("localhost", "root", "", "farm");
+$conn= mysqli_connect("localhost", "u1694897_a_bws_4", "jtipolije", "u1694897_a_bws_4_db");
+// $conn= mysqli_connect("localhost", "root", "", "farm");
 
 
 function query ($query){
@@ -124,6 +125,15 @@ return mysqli_affected_rows($conn);
 // ambil data dari tiap elemen dalam form Kandang A
 function tambahdatakandangA($kandang_a){
 global $conn;
+
+$GetTableGT = mysqli_query($conn, "SELECT MAX(id) AS IDAuto FROM kandang_a");
+$GetKodeGT = mysqli_fetch_array($GetTableGT);
+$GetMaxValue = $GetKodeGT['IDAuto'];
+
+$GetMaxValue++;
+
+$id = $GetMaxValue;
+
 $tanggal = $kandang_a["tanggal"];
 $pakan_total = $kandang_a["pakan_total"];
 $sisa_1 = $kandang_a["sisa_1"];
@@ -157,7 +167,7 @@ mysqli_query($conn,$queryAyam);
 // query insert data
 $query = "INSERT INTO kandang_a
 			VALUES 
-			('','$tanggal','$pakan_total','$sisa_1','$sisa_2','$sisa_3','$sisa_4','$sisa_5','$sisa_6','$jumlah_telur','$berat_telur','$mati','$afkir','$suhu_pagi','$suhu_siang','$suhu_sore','$nama','$keterangan')
+			('$id','$tanggal','$pakan_total','$sisa_1','$sisa_2','$sisa_3','$sisa_4','$sisa_5','$sisa_6','$jumlah_telur','$berat_telur','$mati','$afkir','$suhu_pagi','$suhu_siang','$suhu_sore','$nama','$keterangan')
 			";
 
 mysqli_query($conn,$query);
@@ -272,6 +282,13 @@ return mysqli_affected_rows($conn);
 // ambil data dari tiap elemen dalam form Kandang B
 function tambahdatakandangB($kandang_b){
 global $conn;
+$GetTableGT = mysqli_query($conn, "SELECT MAX(id) AS IDAuto FROM kandang_b");
+$GetKodeGT = mysqli_fetch_array($GetTableGT);
+$GetMaxValue = $GetKodeGT['IDAuto'];
+
+$GetMaxValue++;
+
+$id = $GetMaxValue;
 $tanggal = $kandang_b["tanggal"];
 $pakan_total = $kandang_b["pakan_total"];
 $sisa_1 = $kandang_b["sisa_1"];
@@ -306,7 +323,7 @@ mysqli_query($conn,$queryAyam);
 // query insert data
 $query = "INSERT INTO kandang_b
 			VALUES 
-			('','$tanggal','$pakan_total','$sisa_1','$sisa_2','$sisa_3','$sisa_4','$sisa_5','$sisa_6','$jumlah_telur','$berat_telur','$mati','$afkir','$suhu_pagi','$suhu_siang','$suhu_sore','$nama','$keterangan')
+			('$id','$tanggal','$pakan_total','$sisa_1','$sisa_2','$sisa_3','$sisa_4','$sisa_5','$sisa_6','$jumlah_telur','$berat_telur','$mati','$afkir','$suhu_pagi','$suhu_siang','$suhu_sore','$nama','$keterangan')
 			";
 
 mysqli_query($conn,$query);
@@ -416,6 +433,14 @@ function hapusB ($id){
 // ambil data dari tiap elemen dalam form Kandang C
 function tambahdatakandangC($kandang_c){
 global $conn;
+
+$GetTableGT = mysqli_query($conn, "SELECT MAX(id) AS IDAuto FROM kandang_c");
+$GetKodeGT = mysqli_fetch_array($GetTableGT);
+$GetMaxValue = $GetKodeGT['IDAuto'];
+
+$GetMaxValue++;
+
+$id = $GetMaxValue;
 $tanggal = $kandang_c["tanggal"];
 $pakan_total = $kandang_c["pakan_total"];
 $sisa_1 = $kandang_c["sisa_1"];
@@ -450,7 +475,7 @@ mysqli_query($conn,$queryAyam);
 // query insert data
 $query = "INSERT INTO kandang_c
 			VALUES 
-			('','$tanggal','$pakan_total','$sisa_1','$sisa_2','$sisa_3','$sisa_4','$sisa_5','$sisa_6','$jumlah_telur','$berat_telur','$mati','$afkir','$suhu_pagi','$suhu_siang','$suhu_sore','$nama','$keterangan')
+			('$id','$tanggal','$pakan_total','$sisa_1','$sisa_2','$sisa_3','$sisa_4','$sisa_5','$sisa_6','$jumlah_telur','$berat_telur','$mati','$afkir','$suhu_pagi','$suhu_siang','$suhu_sore','$nama','$keterangan')
 			";
 
 mysqli_query($conn,$query);
@@ -562,6 +587,14 @@ function hapusC ($id){
 // ambil data dari tiap elemen dalam form Kandang C
 function tambahdatakandangD($kandang_d){
 global $conn;
+
+$GetTableGT = mysqli_query($conn, "SELECT MAX(id) AS IDAuto FROM kandang_d");
+$GetKodeGT = mysqli_fetch_array($GetTableGT);
+$GetMaxValue = $GetKodeGT['IDAuto'];
+
+$GetMaxValue++;
+
+$id = $GetMaxValue;
 $tanggal = $kandang_d["tanggal"];
 $pakan_total = $kandang_d["pakan_total"];
 $sisa_1 = $kandang_d["sisa_1"];
@@ -596,7 +629,7 @@ mysqli_query($conn,$queryAyam);
 // query insert data
 $query = "INSERT INTO kandang_d
 			VALUES 
-			('','$tanggal','$pakan_total','$sisa_1','$sisa_2','$sisa_3','$sisa_4','$sisa_5','$sisa_6','$jumlah_telur','$berat_telur','$mati','$afkir','$suhu_pagi','$suhu_siang','$suhu_sore','$nama','$keterangan')
+			('$id','$tanggal','$pakan_total','$sisa_1','$sisa_2','$sisa_3','$sisa_4','$sisa_5','$sisa_6','$jumlah_telur','$berat_telur','$mati','$afkir','$suhu_pagi','$suhu_siang','$suhu_sore','$nama','$keterangan')
 			";
 
 mysqli_query($conn,$query);

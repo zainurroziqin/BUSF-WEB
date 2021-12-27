@@ -47,7 +47,7 @@ if ( !isset($_SESSION["login"])){
                     <label>Data</label>
                 </li>
                 <li class="nav-item"><a href="Pengguna.php" class="nav-link "><span class="pcoded-micon"><i class="fas fa-user"></i></span><span class="pcoded-mtext">Pengguna</span></a></li>
-                <li class="nav-item"><a href="kandangA.php" class="nav-link "><span class="pcoded-micon"><i class="fas fa-dumpster"></i></span><span class="pcoded-mtext">Kandang A</span></a></li>
+                <li class="nav-item"><a href="KandangA.php" class="nav-link "><span class="pcoded-micon"><i class="fas fa-dumpster"></i></span><span class="pcoded-mtext">Kandang A</span></a></li>
                 <li class="nav-item"><a href="KandangB.php" class="nav-link "><span class="pcoded-micon"><i class="fas fa-dumpster"></i></span><span class="pcoded-mtext">Kandang B</span></a></li>
                 <li class="nav-item"><a href="KandangC.php" class="nav-link "><span class="pcoded-micon"><i class="fas fa-dumpster"></i></span><span class="pcoded-mtext">Kandang C</span></a></li>
                 <li class="nav-item"><a href="KandangD.php" class="nav-link "><span class="pcoded-micon"><i class="fas fa-dumpster"></i></span><span class="pcoded-mtext">Kandang D</span></a></li>

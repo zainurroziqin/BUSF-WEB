@@ -50,6 +50,7 @@ echo "
 
 
 $tanggal = date("Ymd");
+
 }
 
 ?>

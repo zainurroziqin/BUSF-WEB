@@ -180,14 +180,91 @@
 
             </div>
             <!--  -->
+
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Grafik FCR Kandang A</h5>
+                    </div>
+                    <div class="card-body">
+                        <div id="sales-chart-kandangA-FCR"></div>
+                    </div>
+                </div>
+            </div>
            
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <h5>Grafik Data Kandang A</h5>
+                        <h5>Grafik EggMas & HenDay Kandang A</h5>
                     </div>
                     <div class="card-body">
-                        <div id="sales-chart"></div>
+                        <div id="sales-chart-kandangA"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Grafik FCR Kandang B</h5>
+                    </div>
+                    <div class="card-body">
+                        <div id="sales-chart-kandangB-FCR"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Grafik EggMas & HenDay Kandang B</h5>
+                    </div>
+                    <div class="card-body">
+                        <div id="sales-chart-kandangB"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Grafik FCR Kandang C</h5>
+                    </div>
+                    <div class="card-body">
+                        <div id="sales-chart-kandangC-FCR"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Grafik EggMas & HenDay Kandang C</h5>
+                    </div>
+                    <div class="card-body">
+                        <div id="sales-chart-kandangC"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Grafik FCR Kandang D</h5>
+                    </div>
+                    <div class="card-body">
+                        <div id="sales-chart-kandangD-FCR"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Grafik EggMas & HenDay Kandang D</h5>
+                    </div>
+                    <div class="card-body">
+                        <div id="sales-chart-kandangD"></div>
                     </div>
                 </div>
             </div>
@@ -210,25 +287,35 @@
     $GetFCRM = array();
     $FCR = array();
 
-    $ayam = mysqli_query($conn, "SELECT * FROM ayam WHERE namaKandang = 'kandang_a'");
-    // $jumlahayam = mysqli_fetch_array($ayam);
+    //mengambil data jumlah ayam kandang A
+    $ayamA = mysqli_query($conn, "SELECT * FROM ayam WHERE namaKandang = 'kandang_a'");
 
-    while($Data = mysqli_fetch_array($ayam)){
-       $jumlahAyam =  $Data['JumlahAyam'];
+    while($Data = mysqli_fetch_array($ayamA)){
+       $jumlahAyamA =  $Data['JumlahAyam'];
     }
 
-    // echo $jumlahAyam;
- 
-     // for ($i = 1; $i <= $jumlahData; $i++) {
- 
-         
-     //     $s = $s + 7;
-     //     $angka[] = $s;
- 
-     //     // for(j=1; $j<= $)
-     //     // // $GetMinggu = mysqli_query($conn, "SELECT SUM(pakan_total) AS JumlahPakan, SUM(berat_telur) AS JumlahBT FROM kandang_a WHERE id BETWEEN '1' AND '7'");
-         
-     // }
+    //mengambil data jumlah ayam kandang B
+    $ayamB = mysqli_query($conn, "SELECT * FROM ayam WHERE namaKandang = 'kandang_b'");
+
+    while($Data = mysqli_fetch_array($ayamB)){
+       $jumlahAyamB =  $Data['JumlahAyam'];
+    }
+
+    //mengambil data jumlah ayam kandang C
+    $ayamC = mysqli_query($conn, "SELECT * FROM ayam WHERE namaKandang = 'kandang_c'");
+
+    while($Data = mysqli_fetch_array($ayamC)){
+       $jumlahAyamC =  $Data['JumlahAyam'];
+    }
+
+    //mengambil data jumlah ayam kandang A
+    $ayamD = mysqli_query($conn, "SELECT * FROM ayam WHERE namaKandang = 'kandang_d'");
+
+    while($Data = mysqli_fetch_array($ayamD)){
+       $jumlahAyamD =  $Data['JumlahAyam'];
+    }
+
+
  
      
      for ($i = 0; ; $i+=7) {
@@ -243,20 +330,58 @@
      for($i = 1; $i<count($angka); $i++){
  
         $angka[$i-1] += 1;
-        $dataMinggu[$i] = mysqli_query($conn, "SELECT SUM(pakan_total) AS JumlahPakan, SUM(berat_telur) AS JumlahBT FROM kandang_a WHERE id BETWEEN ".$angka[$i-1]." AND ".$angka[$i]);
-        //  $dataHenday[]
-        $dataEM[$i] = mysqli_query($conn, "SELECT SUM(berat_telur) AS JumlahBT FROM kandang_a WHERE id BETWEEN ".$angka[$i-1]." AND ".$angka[$i]);
-         
-        
-        $GetFCRM[$i] = mysqli_fetch_array($dataMinggu[$i]);
-        $FCR[$i] = $GetFCRM[$i]['JumlahPakan']/$GetFCRM[$i]['JumlahBT'];
-        //  $Henday[$i] $get
-        $GetEM[$i] = mysqli_fetch_array($dataEM[$i]);
-        $EggMas[$i] = $GetEM[$i]['JumlahBT']/$jumlahAyam * 1000;
 
-        $dataHD[$i] = mysqli_query($conn, "SELECT SUM(jumlah_telur) AS JumlahBT FROM kandang_a WHERE id BETWEEN ".$angka[$i-1]." AND ".$angka[$i]);
-        $GetHD[$i] = mysqli_fetch_array($dataHD[$i]);
-        $HenDay[$i] = $GetHD[$i]['JumlahBT']/$jumlahAyam * 100;
+        //Data Chart Kandang A
+        $dataFCRA[$i] = mysqli_query($conn, "SELECT SUM(pakan_total) AS JumlahPakan, SUM(berat_telur) AS JumlahBT FROM kandang_a WHERE id BETWEEN ".$angka[$i-1]." AND ".$angka[$i]); 
+        $GetFCRA[$i] = mysqli_fetch_array($dataFCRA[$i]);
+        $FCRA[$i] = $GetFCRA[$i]['JumlahPakan']/$GetFCRA[$i]['JumlahBT'];
+
+        $dataEMA[$i] = mysqli_query($conn, "SELECT SUM(berat_telur) AS JumlahBT FROM kandang_a WHERE id BETWEEN ".$angka[$i-1]." AND ".$angka[$i]);
+        $GetEMA[$i] = mysqli_fetch_array($dataEMA[$i]);
+        $EggMasA[$i] = $GetEMA[$i]['JumlahBT']/$jumlahAyamA * 1000;
+
+        $dataHDA[$i] = mysqli_query($conn, "SELECT SUM(jumlah_telur) AS JumlahBT FROM kandang_a WHERE id BETWEEN ".$angka[$i-1]." AND ".$angka[$i]);
+        $GetHDA[$i] = mysqli_fetch_array($dataHDA[$i]);
+        $HenDayA[$i] = $GetHDA[$i]['JumlahBT']/$jumlahAyamA * 100;
+
+        //Data Chart Kandang B
+        $dataFCRB[$i] = mysqli_query($conn, "SELECT SUM(pakan_total) AS JumlahPakan, SUM(berat_telur) AS JumlahBT FROM kandang_b WHERE id BETWEEN ".$angka[$i-1]." AND ".$angka[$i]); 
+        $GetFCRB[$i] = mysqli_fetch_array($dataFCRB[$i]);
+        $FCRB[$i] = $GetFCRB[$i]['JumlahPakan']/$GetFCRB[$i]['JumlahBT'];
+
+        $dataEMB[$i] = mysqli_query($conn, "SELECT SUM(berat_telur) AS JumlahBT FROM kandang_b WHERE id BETWEEN ".$angka[$i-1]." AND ".$angka[$i]);
+        $GetEMB[$i] = mysqli_fetch_array($dataEMB[$i]);
+        $EggMasB[$i] = $GetEMB[$i]['JumlahBT']/$jumlahAyamB * 1000;
+
+        $dataHDB[$i] = mysqli_query($conn, "SELECT SUM(jumlah_telur) AS JumlahBT FROM kandang_b WHERE id BETWEEN ".$angka[$i-1]." AND ".$angka[$i]);
+        $GetHDB[$i] = mysqli_fetch_array($dataHDB[$i]);
+        $HenDayB[$i] = $GetHDB[$i]['JumlahBT']/$jumlahAyamB * 100;
+
+        //Data Chart Kandang C
+        $dataFCRC[$i] = mysqli_query($conn, "SELECT SUM(pakan_total) AS JumlahPakan, SUM(berat_telur) AS JumlahBT FROM kandang_c WHERE id BETWEEN ".$angka[$i-1]." AND ".$angka[$i]); 
+        $GetFCRC[$i] = mysqli_fetch_array($dataFCRC[$i]);
+        $FCRC[$i] = $GetFCRC[$i]['JumlahPakan']/$GetFCRC[$i]['JumlahBT'];
+
+        $dataEMC[$i] = mysqli_query($conn, "SELECT SUM(berat_telur) AS JumlahBT FROM kandang_c WHERE id BETWEEN ".$angka[$i-1]." AND ".$angka[$i]);
+        $GetEMC[$i] = mysqli_fetch_array($dataEMC[$i]);
+        $EggMasC[$i] = $GetEMC[$i]['JumlahBT']/$jumlahAyamC * 1000;
+
+        $dataHDC[$i] = mysqli_query($conn, "SELECT SUM(jumlah_telur) AS JumlahBT FROM kandang_c WHERE id BETWEEN ".$angka[$i-1]." AND ".$angka[$i]);
+        $GetHDC[$i] = mysqli_fetch_array($dataHDC[$i]);
+        $HenDayC[$i] = $GetHDC[$i]['JumlahBT']/$jumlahAyamC * 100;
+        
+        //Data Chart Kandang D
+        $dataFCRD[$i] = mysqli_query($conn, "SELECT SUM(pakan_total) AS JumlahPakan, SUM(berat_telur) AS JumlahBT FROM kandang_d WHERE id BETWEEN ".$angka[$i-1]." AND ".$angka[$i]); 
+        $GetFCRD[$i] = mysqli_fetch_array($dataFCRD[$i]);
+        $FCRD[$i] = $GetFCRD[$i]['JumlahPakan']/$GetFCRD[$i]['JumlahBT'];
+
+        $dataEMD[$i] = mysqli_query($conn, "SELECT SUM(berat_telur) AS JumlahBT FROM kandang_d WHERE id BETWEEN ".$angka[$i-1]." AND ".$angka[$i]);
+        $GetEMD[$i] = mysqli_fetch_array($dataEMD[$i]);
+        $EggMasD[$i] = $GetEMD[$i]['JumlahBT']/$jumlahAyamC * 1000;
+
+        $dataHDD[$i] = mysqli_query($conn, "SELECT SUM(jumlah_telur) AS JumlahBT FROM kandang_d WHERE id BETWEEN ".$angka[$i-1]." AND ".$angka[$i]);
+        $GetHDD[$i] = mysqli_fetch_array($dataHDD[$i]);
+        $HenDayD[$i] = $GetHDD[$i]['JumlahBT']/$jumlahAyamC * 100;
          
     }
  
