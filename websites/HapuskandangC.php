@@ -6,13 +6,13 @@ if (hapusC($id) > 0){
 		echo "
 	<script>
 	alert ('data berhasil dihapus!')
-	document.location.href ='kandangC.php';
+	document.location.href ='KandangC.php';
 	</script>";
 } else {
 	echo "
 	<script>
 	alert ('data gagal dihapus!')
-	document.location.href ='kandangC.php';
+	document.location.href ='KandangC.php';
 	</script>";
 }
 

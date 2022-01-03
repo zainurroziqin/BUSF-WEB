@@ -63,7 +63,7 @@ $kandang_a= query("SELECT * FROM kandang_a")
                                     <a href="EkandangA.php?id=<?=$row["id"]; ?> " type="button" class="btn btn-primary btn-sm">
                                     <i class="fas fa-eye"></i>
                                      Detail</a>  
-                                    <a href="hapuskandangA.php?id=<?=$row["id"]; ?>"  type="button" class="btn btn-danger btn-sm tombol-hapus"onclick="return confirm('yakin?');">
+                                    <a href="HapuskandangA.php?id=<?=$row["id"]; ?>"  type="button" class="btn btn-danger btn-sm tombol-hapus"onclick="return confirm('yakin?');">
                                      <i class="fas fa-trash"></i> Hapus</a>
                                 </td>
                                 </tr>

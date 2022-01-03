@@ -84,7 +84,7 @@ if ( isset($_POST["submit"])){
                         });
                     },10);
                     window.setTimeout(function(){ 
-                        window.location.replace('pengguna');
+                        window.location.replace('Pengguna');
                     },1800);
                 </script>
             ";

@@ -179,7 +179,7 @@ $tanggal = date("Ymd");
                                 </div>
                                 <div class="mb-3">
                                     <label for="mati" class="form-label">Jumlah Ayam Afkir</label>
-                                    <input type="number" class="form-control" id="mati" placeholder="Jumlah ayam afkir" name="afkir" value="<?= $kda["mati"]; ?>" required="" min="0">
+                                    <input type="number" class="form-control" id="afkir" placeholder="Jumlah ayam afkir" name="afkir" value="<?= $kda["afkir"]; ?>" required="" min="0">
                                 </div>
                                 <br><br><br><br><br><br><br><br>
                                 <div class="mb-3">
