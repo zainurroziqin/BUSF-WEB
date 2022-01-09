@@ -89,21 +89,21 @@
                 curve: 'smooth'
             },
             series: [{
-                name: 'Egg Mas',
+                name: 'HenDay',
                 data: [<?php 
-                    for($i = 1; $i <= count($EggMasA); $i++){
-                        echo round("$EggMasA[$i]",2);
-                        if($i < (count($EggMasA))){
+                    for($i = 1; $i <= count($HenDayA); $i++){
+                        echo round("$HenDayA[$i]",2);
+                        if($i < (count($HenDayA))){
                           echo ", ";
                         }
                     }
                 ?>]
             }, {
-                name: 'Hen Day',
+                name: 'Feed Intake',
                 data: [<?php 
-                    for($i = 1; $i <= count($HenDayA); $i++){
-                        echo round("$HenDayA[$i]",2);
-                        if($i < (count($HenDayA))){
+                    for($i = 1; $i <= count($FIA); $i++){
+                        echo round("$FIA[$i]",2);
+                        if($i < (count($FIA))){
                           echo ", ";
                         }
                     }
@@ -130,8 +130,8 @@
                 borderColor: '#e2e5e885',
             },
             yaxis: {
-                min: 100,
-                max: 1000,
+                min: 10,
+                max: 130,
             }
         };
         var chart = new ApexCharts(document.querySelector("#sales-chart-kandangA"), options);
@@ -188,7 +188,7 @@
             },
             yaxis: {
                 min: 1,
-                max: 20,
+                max: 4,
             }
         };
         var chart = new ApexCharts(document.querySelector("#sales-chart-kandangA-FCR"), options);
@@ -214,21 +214,21 @@
                 curve: 'smooth'
             },
             series: [{
-                name: 'Egg Mas',
+                name: 'HenDay',
                 data: [<?php 
-                    for($i = 1; $i <= count($EggMasB); $i++){
-                        echo round("$EggMasB[$i]",2);
-                        if($i < (count($EggMasB))){
+                    for($i = 1; $i <= count($HenDayB); $i++){
+                        echo round("$HenDayB[$i]",2);
+                        if($i < (count($HenDayB))){
                           echo ", ";
                         }
                     }
                 ?>]
             }, {
-                name: 'Hen Day',
+                name: 'Feed Intake',
                 data: [<?php 
-                    for($i = 1; $i <= count($HenDayB); $i++){
-                        echo round("$HenDayB[$i]",2);
-                        if($i < (count($HenDayB))){
+                    for($i = 1; $i <= count($FIB); $i++){
+                        echo round("$FIB[$i]",2);
+                        if($i < (count($FIB))){
                           echo ", ";
                         }
                     }
@@ -255,8 +255,8 @@
                 borderColor: '#e2e5e885',
             },
             yaxis: {
-                min: 100,
-                max: 1000,
+                min: 10,
+                max: 130,
             }
         };
         var chart = new ApexCharts(document.querySelector("#sales-chart-kandangB"), options);
@@ -313,7 +313,7 @@
             },
             yaxis: {
                 min: 1,
-                max: 20,
+                max: 4,
             }
         };
         var chart = new ApexCharts(document.querySelector("#sales-chart-kandangB-FCR"), options);
@@ -338,21 +338,21 @@
                 curve: 'smooth'
             },
             series: [{
-                name: 'Egg Mas',
+                name: 'HenDay',
                 data: [<?php 
-                    for($i = 1; $i <= count($EggMasC); $i++){
-                        echo round("$EggMasC[$i]",2);
-                        if($i < (count($EggMasC))){
+                    for($i = 1; $i <= count($HenDayC); $i++){
+                        echo round("$HenDayC[$i]",2);
+                        if($i < (count($HenDayC))){
                           echo ", ";
                         }
                     }
                 ?>]
             }, {
-                name: 'Hen Day',
+                name: 'Feed Intake',
                 data: [<?php 
-                    for($i = 1; $i <= count($HenDayC); $i++){
-                        echo round("$HenDayC[$i]",2);
-                        if($i < (count($HenDayC))){
+                    for($i = 1; $i <= count($FIC); $i++){
+                        echo round("$FIC[$i]",2);
+                        if($i < (count($FIC))){
                           echo ", ";
                         }
                     }
@@ -379,8 +379,8 @@
                 borderColor: '#e2e5e885',
             },
             yaxis: {
-                min: 100,
-                max: 1000,
+                min: 10,
+                max: 130,
             }
         };
         var chart = new ApexCharts(document.querySelector("#sales-chart-kandangC"), options);
@@ -437,7 +437,7 @@
             },
             yaxis: {
                 min: 1,
-                max: 20,
+                max: 4,
             }
         };
         var chart = new ApexCharts(document.querySelector("#sales-chart-kandangC-FCR"), options);
@@ -462,21 +462,21 @@
                 curve: 'smooth'
             },
             series: [{
-                name: 'Egg Mas',
+                name: 'HenDay',
                 data: [<?php 
-                    for($i = 1; $i <= count($EggMasD); $i++){
-                        echo round("$EggMasD[$i]",2);
-                        if($i < (count($EggMasD))){
+                    for($i = 1; $i <= count($HenDayD); $i++){
+                        echo round("$HenDayD[$i]",2);
+                        if($i < (count($HenDayD))){
                           echo ", ";
                         }
                     }
                 ?>]
             }, {
-                name: 'Hen Day',
+                name: 'Feed Intake',
                 data: [<?php 
-                    for($i = 1; $i <= count($HenDayD); $i++){
-                        echo round("$HenDayD[$i]",2);
-                        if($i < (count($HenDayD))){
+                    for($i = 1; $i <= count($FID); $i++){
+                        echo round("$FID[$i]",2);
+                        if($i < (count($FID))){
                           echo ", ";
                         }
                     }
@@ -503,8 +503,8 @@
                 borderColor: '#e2e5e885',
             },
             yaxis: {
-                min: 100,
-                max: 1000,
+                min: 10,
+                max: 130,
             }
         };
         var chart = new ApexCharts(document.querySelector("#sales-chart-kandangD"), options);
@@ -561,7 +561,7 @@
             },
             yaxis: {
                 min: 1,
-                max: 20,
+                max: 4,
             }
         };
         var chart = new ApexCharts(document.querySelector("#sales-chart-kandangD-FCR"), options);

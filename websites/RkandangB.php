@@ -64,7 +64,7 @@ while($Data = mysqli_fetch_array($ayam)){
                                       <td colspan="3">Suhu Kandang</td>
                                       <td rowspan="3">Hen Day</td>
                                       <td rowspan="3">FCR</td>
-                                      <td rowspan="3">Egg Mass</td>
+                                      <td rowspan="3">FI</td>
                                  </tr>
                                  <tr align="center">                                                                                                          
                                         <td rowspan="2">Afkir</td>
@@ -98,27 +98,33 @@ while($Data = mysqli_fetch_array($ayam)){
                                
                           
                             <?php foreach ($kandang_b as $row ): ?>
+
+                                <?php
+                                    $ade =  $row["sisa_1"]+$row["sisa_2"]+$row["sisa_3"]+$row["sisa_4"]+$row["sisa_5"]+$row["sisa_6"]; 
+                                    $total = $ade/1000;
+                                    ?>
+
                                 <td ><?=$i; ?></td>
                         
                                 <td><?= date ('d F Y', strtotime ($row["tanggal"])); ?></td>
                                 <td><?= $row["afkir"]; ?> Ekor</td>
                                 <td><?= $row["mati"]; ?> Ekor</td>
                                 <td><?= $row["pakan_total"]; ?> Kg</td>
-                                <td><?= $row["sisa_1"]; ?> Kg</td>
-                                <td><?= $row["sisa_2"]; ?> Kg</td>
-                                <td><?= $row["sisa_3"]; ?> Kg</td>
-                                <td><?= $row["sisa_4"]; ?> Kg</td>
-                                <td><?= $row["sisa_5"]; ?> Kg</td>
-                                <td><?= $row["sisa_6"]; ?> Kg</td>
-                                <td><?php $total =  $row["sisa_1"]+$row["sisa_2"]+$row["sisa_3"]+$row["sisa_4"]+$row["sisa_5"]+$row["sisa_6"]; echo "$total"; ?>Kg</td>
+                                <td><?= $row["sisa_1"]; ?> gr</td>
+                                <td><?= $row["sisa_2"]; ?> gr</td>
+                                <td><?= $row["sisa_3"]; ?> gr</td>
+                                <td><?= $row["sisa_4"]; ?> gr</td>
+                                <td><?= $row["sisa_5"]; ?> gr</td>
+                                <td><?= $row["sisa_6"]; ?> gr</td>
+                                <td><?php echo round("$total",2); ?>Kg</td>
                                 <td><?= $row["jumlah_telur"]; ?> Butir </td>
                                 <td><?= $row["berat_telur"]; ?> Kg</td>
                                 <td><?= $row["suhu_pagi"]; ?>℃</td>
                                 <td><?= $row["suhu_siang"]; ?>℃</td>
                                 <td><?= $row["suhu_sore"]; ?>℃</td>
                                 <td> <?php $henday = $row["jumlah_telur"]/$jumlahAyam * 100; echo round("$henday",2);?></td>
-                                <td><?php $fcr =  $row["pakan_total"]/$row["berat_telur"]; echo round("$fcr",2);?></td>
-                                <td><?php $eggmas = $row["berat_telur"]/$jumlahAyam * 1000; echo round("$eggmas", 2); ?></td>
+                                <td><?php $fcr =  ($row["pakan_total"] - $total)/$row["berat_telur"]; echo round("$fcr",2);?></td>
+                                <td><?php $FI = ($row["pakan_total"] - $total) * 1000/$jumlahAyam; echo round("$FI", 2); ?></td>
                                 
                                 </tr>
                                 <?php $i ++; ?>
@@ -132,7 +138,7 @@ while($Data = mysqli_fetch_array($ayam)){
                         </div>
                     </div>
                     <div class="mt-2 mb-2 ml-3 ">
-<button type="button"  class="btn btn-danger mr-4" onclick = "ExportToExcel('xlsx')"><i class="fas fa-edit" ></i> Cetak PDF</button>
+<button type="button"  class="btn btn-danger mr-4" onclick = "ExportToExcel('xlsx')"><i class="fas fa-edit" ></i> Export Excel</button>
 
                          </div>
                 </div>
