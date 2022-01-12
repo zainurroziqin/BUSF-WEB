@@ -99,7 +99,7 @@
                     }
                 ?>]
             }, {
-                name: 'Feed Intake',
+                name: 'Food Intake',
                 data: [<?php 
                     for($i = 1; $i <= count($FIA); $i++){
                         echo round("$FIA[$i]",2);
@@ -224,7 +224,7 @@
                     }
                 ?>]
             }, {
-                name: 'Feed Intake',
+                name: 'Food Intake',
                 data: [<?php 
                     for($i = 1; $i <= count($FIB); $i++){
                         echo round("$FIB[$i]",2);
@@ -348,7 +348,7 @@
                     }
                 ?>]
             }, {
-                name: 'Feed Intake',
+                name: 'Food Intake',
                 data: [<?php 
                     for($i = 1; $i <= count($FIC); $i++){
                         echo round("$FIC[$i]",2);
@@ -472,7 +472,7 @@
                     }
                 ?>]
             }, {
-                name: 'Feed Intake',
+                name: 'Food Intake',
                 data: [<?php 
                     for($i = 1; $i <= count($FID); $i++){
                         echo round("$FID[$i]",2);

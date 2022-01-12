@@ -278,8 +278,20 @@
 <?php 
     $GetMin = mysqli_query($conn, "SELECT * FROM kandang_a");
     $jumlahData = mysqli_num_rows($GetMin);
+
+    $GetMinB = mysqli_query($conn, "SELECT * FROM kandang_b");
+    $jumlahDataB = mysqli_num_rows($GetMinB);
+
+    $GetMinC = mysqli_query($conn, "SELECT * FROM kandang_c");
+    $jumlahDataC = mysqli_num_rows($GetMinC);
+
+    $GetMinD = mysqli_query($conn, "SELECT * FROM kandang_d");
+    $jumlahDataD = mysqli_num_rows($GetMinD);
  
     $angka = array();
+    $angkaB = array();
+    $angkaC = array();
+    $angkaD= array();
     $s = 1;
 
     // $kandang_a= query("SELECT * FROM kandang_a WHERE keterangan = 'Terkonfirmasi'");
@@ -331,16 +343,36 @@
 
  
      
-     for ($i = 0; ; $i+=7) {
-         if ($i > $jumlahData) {
+    for ($i = 0; ; $i+=7) {
+        if ($i > $jumlahData) {
              break;
-         }
-         $angka[] = $i;
- 
-     }
+        }
+        $angka[] = $i;
+    }
+
+    for ($i = 0; ; $i+=7) {
+        if ($i > $jumlahDataB) {
+             break;
+        }
+        $angkaB[] = $i;
+    }
+
+    for ($i = 0; ; $i+=7) {
+        if ($i > $jumlahDataC) {
+             break;
+        }
+        $angkaC[] = $i;
+    }
+
+    for($i = 0; ; $i+=7){
+        if($i > $jumlahDataD){
+            break;
+        }
+        $angkaD[] = $i;
+    }
  
      
-     for($i = 1; $i<count($angka); $i++){
+    for($i = 1; $i<count($angka); $i++){
  
         $angka[$i-1] += 1;
 
@@ -362,6 +394,17 @@
         $GetHDA[$i] = mysqli_fetch_array($dataHDA[$i]);
         $HenDayA[$i] = $GetHDA[$i]['JumlahBT']/$jumlahAyamA * 100/7;
 
+
+        
+        
+        
+        
+         
+    }
+
+    for($i = 1; $i<count($angkaB); $i++){
+        $angka[$i-1] += 1;
+
         //Data Chart Kandang B
         $dataFCRB[$i] = mysqli_query($conn, "SELECT SUM(pakan_total) AS JumlahPakan, SUM(berat_telur) AS JumlahBT FROM kandang_b WHERE id BETWEEN ".$angka[$i-1]." AND ".$angka[$i]); 
         $GetFCRB[$i] = mysqli_fetch_array($dataFCRB[$i]);
@@ -379,6 +422,10 @@
         $dataHDB[$i] = mysqli_query($conn, "SELECT SUM(jumlah_telur) AS JumlahBT FROM kandang_b WHERE id BETWEEN ".$angka[$i-1]." AND ".$angka[$i]);
         $GetHDB[$i] = mysqli_fetch_array($dataHDB[$i]);
         $HenDayB[$i] = $GetHDB[$i]['JumlahBT']/$jumlahAyamB * 100/7;
+    }
+
+    for($i = 1; $i<count($angkaC); $i++){
+        $angka[$i-1] += 1;
 
         //Data Chart Kandang C
         $dataFCRC[$i] = mysqli_query($conn, "SELECT SUM(pakan_total) AS JumlahPakan, SUM(berat_telur) AS JumlahBT FROM kandang_c WHERE id BETWEEN ".$angka[$i-1]." AND ".$angka[$i]); 
@@ -397,7 +444,11 @@
         $dataHDC[$i] = mysqli_query($conn, "SELECT SUM(jumlah_telur) AS JumlahBT FROM kandang_c WHERE id BETWEEN ".$angka[$i-1]." AND ".$angka[$i]);
         $GetHDC[$i] = mysqli_fetch_array($dataHDC[$i]);
         $HenDayC[$i] = $GetHDC[$i]['JumlahBT']/$jumlahAyamC * 100/7;
-        
+    }
+
+    for($i = 1; $i<count($angkaD); $i++){
+        $angka[$i-1] += 1;
+
         //Data Chart Kandang D
         $dataFCRD[$i] = mysqli_query($conn, "SELECT SUM(pakan_total) AS JumlahPakan, SUM(berat_telur) AS JumlahBT FROM kandang_d WHERE id BETWEEN ".$angka[$i-1]." AND ".$angka[$i]); 
         $GetFCRD[$i] = mysqli_fetch_array($dataFCRD[$i]);
@@ -415,8 +466,6 @@
         $dataHDD[$i] = mysqli_query($conn, "SELECT SUM(jumlah_telur) AS JumlahBT FROM kandang_d WHERE id BETWEEN ".$angka[$i-1]." AND ".$angka[$i]);
         $GetHDD[$i] = mysqli_fetch_array($dataHDD[$i]);
         $HenDayD[$i] = $GetHDD[$i]['JumlahBT']/$jumlahAyamC * 100/7;
-        
-         
     }
  
 

@@ -1,6 +1,6 @@
 <?php 
-$conn= mysqli_connect("localhost", "u1694897_a_bws_4", "jtipolije", "u1694897_a_bws_4_db");
-// $conn= mysqli_connect("localhost", "root", "", "farm");
+// $conn= mysqli_connect("localhost", "u1694897_a_bws_4", "jtipolije", "u1694897_a_bws_4_db");
+$conn= mysqli_connect("localhost", "root", "", "farm");
 
 
 function query ($query){
