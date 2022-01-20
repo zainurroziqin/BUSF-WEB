@@ -123,6 +123,9 @@ if (ubah ($_POST) > 0 ) {
                                    
                                     <div class="mb-3">
                                         <button type="submit" name="submit" class="btn btn-primary"><i class="fas fa-edit"></i> Edit</button>
+                                        <a href="Pengguna.php">
+                                    <button type="button"  class="btn btn-danger"><i class="fas fa-fw fa-sign-out-alt"></i><b>Back</b></button>
+                                    </a>
 
                                     </div>
 

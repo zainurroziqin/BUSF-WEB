@@ -197,16 +197,15 @@ $tanggal = date("Ymd");
                                 </div>
 
                                     </div>
-
-
                                     <button type="submit" name="submit" class="btn btn-success"><i class="fas fa-edit"> Edit</i></button>
-
-
+                                    <a href="KandangA.php">
+                                    <button type="button"  class="btn btn-danger"><i class="fas fa-fw fa-sign-out-alt"></i><b>Back</b></button>
+                                    </a>
                                 </div>
                             </div>
 
-
-
+<!-- 
+<button type="submit" name="submit" class="btn btn-success"><i class="fas fa-edit"> Edit</i></button> -->
 
                         </div>
                     </form>

@@ -200,7 +200,9 @@ $tanggal = date("Ymd");
 
 
                                     <button type="submit" name="submit" class="btn btn-success"><i class="fas fa-edit"> Edit</i></button>
-
+                                    <a href="KandangD.php">
+                                    <button type="button"  class="btn btn-danger"><i class="fas fa-fw fa-sign-out-alt"></i><b>Back</b></button>
+                                    </a>
 
                                 </div>
                             </div>
