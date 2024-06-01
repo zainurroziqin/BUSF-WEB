@@ -1,5 +1,6 @@
 <?php 
-include '../configs/koneksi.php';
+include '../../configs/koneksi.php';
+include '../proses/proses-pengguna.php';
 
 $id = $_GET["id"];
 

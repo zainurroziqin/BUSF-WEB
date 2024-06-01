@@ -4,12 +4,12 @@
     include 'komponen/sidebar.php';
     include 'komponen/navbar.php';
     include '../configs/koneksi.php';
+    include 'proses/proses-kandangA.php';
     
 if ( !isset($_SESSION["login"])){
     header("Location: login.php");
     exit;
 }
-// $conn= mysqli_connect("localhost", "root", "", "farm");
 
 // cek apakah tombol submit sudah ditekan atau belum
 if ( isset($_POST["submit"])){

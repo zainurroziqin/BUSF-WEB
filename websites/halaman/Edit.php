@@ -1,8 +1,9 @@
 <?php 
-include 'komponen/starting-pages.php';
-    include 'komponen/sidebar.php';
-    include 'komponen/navbar.php';
-  include '../configs/koneksi.php';
+    include '../komponen/starting-pages.php';
+    include '../komponen/sidebar.php';
+    include '../komponen/navbar.php';
+    require '../../configs/koneksi.php';
+    include '../proses/proses-pengguna.php';
 
   // ambil data di url
 $id = $_GET["id"];
@@ -147,5 +148,5 @@ if (ubah ($_POST) > 0 ) {
 <!-- </div> -->
 
 <?php
-    include 'komponen/closing-pages.php';
+    include '../komponen/closing-pages.php';
 ?>

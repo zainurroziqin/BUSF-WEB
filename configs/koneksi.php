@@ -15,100 +15,12 @@ function query ($query){
 }
 
 
-// hapus data User
-function hapus ($id){
-	global $conn;
-	$SelectData = mysqli_query($conn, "SELECT * FROM user WHERE id = '$id'");
-	$GetDataIMG = mysqli_fetch_array($SelectData);
-	$RemoveIMG = unlink("../assets/images/user/$GetDataIMG[gambar]");
-	if ($RemoveIMG) {
-			mysqli_query($conn,"DELETE FROM user WHERE id =$id");
-	return mysqli_affected_rows($conn);
-	}
-}
-
-// function ubah
-function ubah($data){
-global $conn;
-$id = $data ["id"];
-$nama = $data["nama"];
-$alamat = $data["alamat"];
-$username = $data["username"];
-$role = $data["role"];
-$telp = $data["telp"];
-
-// query insert data
-$query = "UPDATE user SET
-			nama = '$nama',
-			alamat = '$alamat',
-			username = '$username',
-			role = '$role',
-			telp = '$telp'
-			WHERE id = $id
-			";
-mysqli_query($conn,$query);
-
-return mysqli_affected_rows($conn);
-}
 
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-// ambil data dari tiap elemen dalam form Kandang A
-function tambahdatakandangA($kandang_a){
-    global $conn;
 
-    // Mendapatkan ID maksimum saat ini dan menambah 1 untuk ID baru
-    $GetTableGT = mysqli_query($conn, "SELECT MAX(id) AS IDAuto FROM kandang_a");
-    $GetKodeGT = mysqli_fetch_array($GetTableGT);
-    $GetMaxValue = $GetKodeGT['IDAuto'];
-
-    $GetMaxValue++;
-
-    $id = $GetMaxValue;
-
-    // Mengambil data dari array $kandang_a dengan menggunakan mysqli_real_escape_string untuk keamanan
-    $tanggal = mysqli_real_escape_string($conn, $kandang_a["tanggal"]);
-    $pakan_total = mysqli_real_escape_string($conn, $kandang_a["pakan_total"]);
-    $sisa_1 = mysqli_real_escape_string($conn, $kandang_a["sisa_1"]);
-    $sisa_2 = mysqli_real_escape_string($conn, $kandang_a["sisa_2"]);
-    $sisa_3 = mysqli_real_escape_string($conn, $kandang_a["sisa_3"]);
-    $sisa_4 = mysqli_real_escape_string($conn, $kandang_a["sisa_4"]);
-    $sisa_5 = mysqli_real_escape_string($conn, $kandang_a["sisa_5"]);
-    $sisa_6 = mysqli_real_escape_string($conn, $kandang_a["sisa_6"]);
-    $jumlah_telur = mysqli_real_escape_string($conn, $kandang_a["jumlah_telur"]);
-    $berat_telur = mysqli_real_escape_string($conn, $kandang_a["berat_telur"]);
-    $mati = mysqli_real_escape_string($conn, $kandang_a["mati"]);
-    $afkir = mysqli_real_escape_string($conn, $kandang_a["afkir"]);
-    $suhu_pagi = mysqli_real_escape_string($conn, $kandang_a["suhu_pagi"]);
-    $suhu_siang = mysqli_real_escape_string($conn, $kandang_a["suhu_siang"]);
-    $suhu_sore = mysqli_real_escape_string($conn, $kandang_a["suhu_sore"]);
-    $nama = mysqli_real_escape_string($conn, $kandang_a["nama"]);
-    $keterangan = mysqli_real_escape_string($conn, $kandang_a["keterangan"]);
-
-    // Mendapatkan jumlah ayam saat ini dari tabel ayam
-    $ayam = mysqli_query($conn, "SELECT * FROM kandang_a WHERE namaKandang = 'kandang_a'");
-    $jumlahAyam = 0;
-    while($Data = mysqli_fetch_array($ayam)){
-        $jumlahAyam =  $Data['JumlahAyam'];
-    }
-    
-    // Menghitung jumlah ayam yang tersisa
-    $totalAyam = $jumlahAyam - $mati - $afkir;
-
-    // Mengupdate jumlah ayam di tabel ayam
-    $queryAyam = "UPDATE ayam SET JumlahAyam = $totalAyam WHERE namaKandang = 'kandang_a'";
-    mysqli_query($conn, $queryAyam);
-
-    // Query insert data ke tabel kandang_a
-    $query = "INSERT INTO kandang_a (id, tanggal, pakan_total, sisa_1, sisa_2, sisa_3, sisa_4, sisa_5, sisa_6, jumlah_telur, berat_telur, mati, afkir, suhu_pagi, suhu_siang, suhu_sore, nama, keterangan)
-              VALUES ('$id', '$tanggal', '$pakan_total', '$sisa_1', '$sisa_2', '$sisa_3', '$sisa_4', '$sisa_5', '$sisa_6', '$jumlah_telur', '$berat_telur', '$mati', '$afkir', '$suhu_pagi', '$suhu_siang', '$suhu_sore', '$nama', '$keterangan')";
-
-    mysqli_query($conn, $query);
-
-    return mysqli_affected_rows($conn);
-}
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // function hapus kandang A
 function hapusA ($id){

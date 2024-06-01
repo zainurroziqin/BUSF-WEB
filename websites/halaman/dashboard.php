@@ -1,8 +1,8 @@
 <?php 
-    include 'komponen/starting-pages.php';
-    include 'komponen/sidebar.php';
-    include 'komponen/navbar.php';
-    require '../configs/koneksi.php';
+    include '../komponen/starting-pages.php';
+    include '../komponen/sidebar.php';
+    include '../komponen/navbar.php';
+    require '../../configs/koneksi.php';
 
     if ( !isset($_SESSION["login"])){
         header("Location: login.php");
@@ -473,5 +473,5 @@
 ?>
 
 <?php 
-    include 'komponen/closing-pages.php';
+    include '../komponen/closing-pages.php';
 ?>

@@ -1,12 +1,9 @@
 <?php
-
-    include 'komponen/starting-pages.php';
-    include 'komponen/sidebar.php';
-    include 'komponen/navbar.php';
-    include '../configs/koneksi.php';
-
-
-    $user = query("SELECT * FROM user")
+    include '../komponen/starting-pages.php';
+    include '../komponen/sidebar.php';
+    include '../komponen/navbar.php';
+    include '../../configs/koneksi.php';
+    include '../proses/proses-pengguna.php';
 ?>
 <!-- <div class="pcoded-main-container"> -->
     <section class="pcoded-main-container">
@@ -34,7 +31,7 @@
                 <div class="card">
                     <div class="card-header">
                         <!-- <h5>Kandang A</h5> -->
-                        <a href="Tpengguna.php">
+                        <a href="TambahPengguna.php">
                         <button type="button" class="btn btn-warning"><i class="feather mr-2 icon-plus"></i>Tambah Data Baru</button>
                             </a>
                     </div>
@@ -57,7 +54,7 @@
                                     <tr>
                                     <td><?=$i; ?></td>
                                     <td>
-                                     <img class="rounded-circle" src="../assets/images/user/<?= $usr["gambar"]; ?>"  alt="User-Profile-Image" style="width: 100px; height: 100px; object-fit: cover; margin: auto; display:block;">
+                                     <img class="rounded-circle" src="../../assets/images/user/<?= $usr["gambar"]; ?>"  alt="User-Profile-Image" style="width: 100px; height: 100px; object-fit: cover; margin: auto; display:block;">
                                         </td>
                                     <td><?= $usr["nama"]; ?></td>
 
@@ -87,5 +84,5 @@
 <!-- </div> -->
 
 <?php
-    include 'komponen/closing-pages.php';
+    include '../komponen/closing-pages.php';
 ?>
