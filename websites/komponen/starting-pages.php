@@ -4,7 +4,7 @@
 
 
 <head>
-    <title>Barokah Utama Farm</title>
+    <title>Barokah Utama Smart Farm</title>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
@@ -13,13 +13,13 @@
     <meta name="keywords" content="">
     <meta name="author" content="Phoenixcoded" />
     <!-- Favicon icon -->
-    <link rel="icon" href="../assets/images/logoAyam.png" type="image/x-icon">
+    <link rel="icon" href="/assets/images/logoAyam.png" type="image/x-icon">
 
     
 
-    <link rel="stylesheet" href="../assets/css/plugins/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="/assets/css/plugins/dataTables.bootstrap4.min.css">
     <!-- vendor css -->
-    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
     
     
 

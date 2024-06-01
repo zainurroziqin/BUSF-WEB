@@ -13,72 +13,6 @@ function query ($query){
 	return $rows;
 
 }
-// ambil data dari tiap elemen dalam form index.php
-// function tambah($data){
-// global $conn;
-// $nama = $data["nama"];
-// $alamat = $data["alamat"];
-// $username = stripslashes($data["username"]);
-// // $password = mysqli_real_escape_string($conn, $data["password"]);
-// $password = $data["password"];
-// $confirmPassword = $data["confirmPassword"];
-
-// $role = $data["role"];
-// $telp = $data["telp"];
-// $tanggal_dibuat = $data["tanggal_dibuat"];
-
-
-
-// 	if($password != $confirmPassword){
-// 		echo "
-// 			<script>
-// 				setTimeout(function() { 
-// 					Swal.fire({
-// 						title: 'Gagal!',
-// 						text: 'Password tidak sama',
-// 						icon: 'gagal',
-// 					});
-// 				},10);
-// 				window.setTimeout(function(){ 
-// 					window.location.replace('Tpengguna');
-// 				},2500);
-// 			</script>
-// 		";
-// 	}else{
-// 		// enkripsi password
-// 		$password = password_hash($password, PASSWORD_DEFAULT);
-
-// 		// query insert data
-// 		$query = "INSERT INTO user
-// 					VALUES 
-// 					('','$nama','$alamat','$username','$password','$role','$telp','$tanggal_dibuat')
-// 					";
-// 		mysqli_query($conn,$query);
-// 		return mysqli_affected_rows($conn);
-
-// 		echo "
-//                 <script>
-//                     setTimeout(function() { 
-//                         Swal.fire({
-//                             title: 'Berhasil!',
-//                             text: 'Data Berhasil Ditambahkan',
-//                             icon: 'success',
-//                         });
-//                     },10);
-//                     window.setTimeout(function(){ 
-//                         window.location.replace('pengguna');
-//                     },1800);
-//                 </script>
-//             ";
-// 	}
-
-// }
-
-
-    
-
-    
-
 
 
 // hapus data User
@@ -91,7 +25,6 @@ function hapus ($id){
 			mysqli_query($conn,"DELETE FROM user WHERE id =$id");
 	return mysqli_affected_rows($conn);
 	}
-
 }
 
 // function ubah
@@ -124,55 +57,57 @@ return mysqli_affected_rows($conn);
 
 // ambil data dari tiap elemen dalam form Kandang A
 function tambahdatakandangA($kandang_a){
-global $conn;
+    global $conn;
 
-$GetTableGT = mysqli_query($conn, "SELECT MAX(id) AS IDAuto FROM kandang_a");
-$GetKodeGT = mysqli_fetch_array($GetTableGT);
-$GetMaxValue = $GetKodeGT['IDAuto'];
+    // Mendapatkan ID maksimum saat ini dan menambah 1 untuk ID baru
+    $GetTableGT = mysqli_query($conn, "SELECT MAX(id) AS IDAuto FROM kandang_a");
+    $GetKodeGT = mysqli_fetch_array($GetTableGT);
+    $GetMaxValue = $GetKodeGT['IDAuto'];
 
-$GetMaxValue++;
+    $GetMaxValue++;
 
-$id = $GetMaxValue;
+    $id = $GetMaxValue;
 
-$tanggal = $kandang_a["tanggal"];
-$pakan_total = $kandang_a["pakan_total"];
-$sisa_1 = $kandang_a["sisa_1"];
-$sisa_2 = $kandang_a["sisa_2"];
-$sisa_3 = $kandang_a["sisa_3"];
-$sisa_4 = $kandang_a["sisa_4"];
-$sisa_5 = $kandang_a["sisa_5"];
-$sisa_6 = $kandang_a["sisa_6"];
-$jumlah_telur = $kandang_a["jumlah_telur"];
-$berat_telur = $kandang_a["berat_telur"];
-$mati = $kandang_a["mati"];
-$afkir = $kandang_a["afkir"];
-$suhu_pagi = $kandang_a["suhu_pagi"];
-$suhu_siang = $kandang_a["suhu_siang"];
-$suhu_sore = $kandang_a["suhu_sore"];
-$nama = $kandang_a["nama"];
-$keterangan = $kandang_a["keterangan"];
+    // Mengambil data dari array $kandang_a dengan menggunakan mysqli_real_escape_string untuk keamanan
+    $tanggal = mysqli_real_escape_string($conn, $kandang_a["tanggal"]);
+    $pakan_total = mysqli_real_escape_string($conn, $kandang_a["pakan_total"]);
+    $sisa_1 = mysqli_real_escape_string($conn, $kandang_a["sisa_1"]);
+    $sisa_2 = mysqli_real_escape_string($conn, $kandang_a["sisa_2"]);
+    $sisa_3 = mysqli_real_escape_string($conn, $kandang_a["sisa_3"]);
+    $sisa_4 = mysqli_real_escape_string($conn, $kandang_a["sisa_4"]);
+    $sisa_5 = mysqli_real_escape_string($conn, $kandang_a["sisa_5"]);
+    $sisa_6 = mysqli_real_escape_string($conn, $kandang_a["sisa_6"]);
+    $jumlah_telur = mysqli_real_escape_string($conn, $kandang_a["jumlah_telur"]);
+    $berat_telur = mysqli_real_escape_string($conn, $kandang_a["berat_telur"]);
+    $mati = mysqli_real_escape_string($conn, $kandang_a["mati"]);
+    $afkir = mysqli_real_escape_string($conn, $kandang_a["afkir"]);
+    $suhu_pagi = mysqli_real_escape_string($conn, $kandang_a["suhu_pagi"]);
+    $suhu_siang = mysqli_real_escape_string($conn, $kandang_a["suhu_siang"]);
+    $suhu_sore = mysqli_real_escape_string($conn, $kandang_a["suhu_sore"]);
+    $nama = mysqli_real_escape_string($conn, $kandang_a["nama"]);
+    $keterangan = mysqli_real_escape_string($conn, $kandang_a["keterangan"]);
 
-$ayam = mysqli_query($conn, "SELECT * FROM ayam WHERE namaKandang = 'kandang_a'");
+    // Mendapatkan jumlah ayam saat ini dari tabel ayam
+    $ayam = mysqli_query($conn, "SELECT * FROM kandang_a WHERE namaKandang = 'kandang_a'");
+    $jumlahAyam = 0;
+    while($Data = mysqli_fetch_array($ayam)){
+        $jumlahAyam =  $Data['JumlahAyam'];
+    }
+    
+    // Menghitung jumlah ayam yang tersisa
+    $totalAyam = $jumlahAyam - $mati - $afkir;
 
-while($Data = mysqli_fetch_array($ayam)){
-    $jumlahAyam =  $Data['JumlahAyam'];
-}
-       
-$totalAyam = $jumlahAyam - $mati - $afkir;
+    // Mengupdate jumlah ayam di tabel ayam
+    $queryAyam = "UPDATE ayam SET JumlahAyam = $totalAyam WHERE namaKandang = 'kandang_a'";
+    mysqli_query($conn, $queryAyam);
 
-$queryAyam = "UPDATE ayam SET JumlahAyam= $totalAyam WHERE namaKandang = 'kandang_a'";
+    // Query insert data ke tabel kandang_a
+    $query = "INSERT INTO kandang_a (id, tanggal, pakan_total, sisa_1, sisa_2, sisa_3, sisa_4, sisa_5, sisa_6, jumlah_telur, berat_telur, mati, afkir, suhu_pagi, suhu_siang, suhu_sore, nama, keterangan)
+              VALUES ('$id', '$tanggal', '$pakan_total', '$sisa_1', '$sisa_2', '$sisa_3', '$sisa_4', '$sisa_5', '$sisa_6', '$jumlah_telur', '$berat_telur', '$mati', '$afkir', '$suhu_pagi', '$suhu_siang', '$suhu_sore', '$nama', '$keterangan')";
 
+    mysqli_query($conn, $query);
 
-mysqli_query($conn,$queryAyam);
-// query insert data
-$query = "INSERT INTO kandang_a
-			VALUES 
-			('$id','$tanggal','$pakan_total','$sisa_1','$sisa_2','$sisa_3','$sisa_4','$sisa_5','$sisa_6','$jumlah_telur','$berat_telur','$mati','$afkir','$suhu_pagi','$suhu_siang','$suhu_sore','$nama','$keterangan')
-			";
-
-mysqli_query($conn,$query);
-
-return mysqli_affected_rows($conn);
+    return mysqli_affected_rows($conn);
 }
 
 // function hapus kandang A

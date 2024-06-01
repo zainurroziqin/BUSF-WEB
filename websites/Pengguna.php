@@ -57,7 +57,7 @@
                                     <tr>
                                     <td><?=$i; ?></td>
                                     <td>
-                                     <img src="../assets/images/user/<?= $usr["gambar"]; ?>" width= "60">
+                                     <img class="rounded-circle" src="../assets/images/user/<?= $usr["gambar"]; ?>"  alt="User-Profile-Image" style="width: 100px; height: 100px; object-fit: cover; margin: auto; display:block;">
                                         </td>
                                     <td><?= $usr["nama"]; ?></td>
 

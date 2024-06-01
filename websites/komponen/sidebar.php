@@ -1,21 +1,10 @@
- <?php 
- session_start();
-if ( !isset($_SESSION["login"])){
-    header("Location: login.php");
+<?php 
+session_start();
+if (!isset($_SESSION["login"])) {
+    header("Location: Login");
     exit;
 }
-
-
-
-   ?>
-<!-- <?php 
-// include '../configs/koneksi.php';
-// $query = "SELECT * FROM user WHERE nama = $_SESSION ['nama']";
-// $user = mysqli_query($conn,$query);
-
-
- // $user = query("SELECT * FROM user");
- ?> -->
+?>
 
 <div class="loader-bg">
     <div class="loader-track">
@@ -26,14 +15,13 @@ if ( !isset($_SESSION["login"])){
     <div class="navbar-wrapper  ">
         <div class="navbar-content scroll-div " >
             
-            <div class="">
+            <div class="nama">
                 <div class="main-menu-header">
-                    <img class="img-radius" img src="../assets/images/user/<?= $_SESSION['gambar']; ?>" alt="User-Profile-Image">
+                    <img class="rounded-circle" src="../assets/images/user/<?= $_SESSION['gambar']; ?>" alt="User-Profile-Image" style="width: 100px; height: 100px; object-fit: cover; margin: auto; display:block;">
                     <div class="user-details">
                         <div id="more-details"><?php echo $_SESSION['nama' ] ; ?></div>
                     </div>
-                </div>
-               
+                </div>   
             </div>
            <br>
             <ul class="nav pcoded-inner-navbar ">

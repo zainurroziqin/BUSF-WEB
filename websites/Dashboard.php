@@ -2,12 +2,12 @@
     include 'komponen/starting-pages.php';
     include 'komponen/sidebar.php';
     include 'komponen/navbar.php';
-    include '../configs/koneksi.php';
+    require '../configs/koneksi.php';
 
     if ( !isset($_SESSION["login"])){
-    header("Location: login.php");
-    exit;
-}
+        header("Location: login.php");
+        exit;
+    }
 ?>
 <div class="pcoded-main-container">
     <div class="pcoded-content">
